@@ -1,0 +1,18 @@
+.divLoginContainer {
+  /* position: absolute; */
+  background-color: rgb(198, 199, 204);
+  height: 300px;
+  width: 300px;
+  /* top: 50%;
+  left: 50%;
+  margin-top: -150px;
+  margin-left: -150px; */
+}
+
+img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 0 auto;
+}
