@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  constructor() {
+    
+   }
+
   signInClicked() {
     console.log('Sign in clicked!');
+
   }
 
   signUpClicked() {
