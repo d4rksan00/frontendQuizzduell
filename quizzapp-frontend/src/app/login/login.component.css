@@ -1,0 +1,46 @@
+.login-container{
+    background-color: #1354b2;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+img{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    top: 10%;
+    left: 50%;
+    margin-left: -75px;
+}
+
+/* Here is the Form */
+.example-full-width {
+    display: block;
+    margin: 0 auto;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 75%;
+  }
+
+  /* Here are the Buttons */
+
+  .btn-signin{
+    display: block;
+    margin: 0 auto;
+    width: 75%;
+    margin-bottom: 10px;
+  }
+
+  

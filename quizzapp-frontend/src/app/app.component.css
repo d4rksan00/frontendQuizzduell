@@ -1,0 +1,10 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/assets/images/questions-marks.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  background-size: cover;
+}
