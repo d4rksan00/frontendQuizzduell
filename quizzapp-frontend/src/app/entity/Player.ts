@@ -3,9 +3,9 @@ export class Player {
 
 
     constructor(
-        public id: Number, 
-        public email: String, 
-        public password: String, 
+        //public id: Number, 
+        public email: string, 
+        public password: string, 
         // public activePlayer: Boolean, 
         // public points: Number, 
         // public countWins: Number, 
