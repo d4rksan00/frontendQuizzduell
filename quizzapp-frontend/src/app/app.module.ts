@@ -7,24 +7,20 @@ import { LoginComponent } from './login/login.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatToolbarModule} from "@angular/material/toolbar";
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import {MatToolbar} from "@angular/material/toolbar";
-import {HomepageComponent} from "./homepage/homepage.component";
-import { GameOverviewComponent } from './game-overview/game-overview.component';
-import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-exist.component';
-
+import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {QuizComponent} from "./quiz/quiz.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomepageComponent,
-    GameOverviewComponent,
-    PageDoesNotExistComponent
+    QuizRoundComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +32,7 @@ import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-e
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-    MatToolbarModule,
-    MatToolbar,
+    MatProgressBarModule
   ],
   providers: [
     provideAnimationsAsync()
