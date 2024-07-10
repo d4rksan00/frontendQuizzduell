@@ -13,6 +13,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { HomepageComponent } from './homepage/homepage.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { HomepageComponent } from './homepage/homepage.component';
     FormsModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    
   ],
   providers: [
     provideAnimationsAsync()
