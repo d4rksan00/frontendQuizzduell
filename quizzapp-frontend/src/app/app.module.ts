@@ -16,6 +16,8 @@ import {MatToolbar} from "@angular/material/toolbar";
 import {HomepageComponent} from "./homepage/homepage.component";
 import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-exist.component';
+import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-e
     LoginComponent,
     HomepageComponent,
     GameOverviewComponent,
-    PageDoesNotExistComponent
+    PageDoesNotExistComponent,
+    QuizRoundComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-e
     MatButtonModule,
     MatToolbarModule,
     MatToolbar,
+    MatProgressBarModule
   ],
   providers: [
     provideAnimationsAsync()
