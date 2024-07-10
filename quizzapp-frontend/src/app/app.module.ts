@@ -11,11 +11,13 @@ import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    QuizRoundComponent
   ],
   imports: [
     BrowserModule,

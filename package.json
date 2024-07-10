@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular/cli": "^18.0.3",
+    "@angular/material": "^18.0.2",
+    "@angular/platform-browser-dynamic": "^18.0.2",
+    "@angular/router": "^18.0.2",
+    "angular": "^1.8.3",
+    "cli": "^1.0.1"
+  }
+}
