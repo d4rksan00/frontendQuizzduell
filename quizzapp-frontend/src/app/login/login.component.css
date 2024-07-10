@@ -1,57 +1,47 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(71, 166, 255);
+}
 
-.main-container{
+
+.login-container {
+  background-color: #1354b2;
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-image: url('/assets/images/backgroundpic.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  flex-direction: column;
 }
 
-
-.login-container{
-    background-color: #1354b2;
-    width: 300px;
-    height: 300px;
-    border-radius: 5px;
-    display: flex;
-    /* justify-content: center; */
-    align-items: center;
+img {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
 }
 
-img{
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 100px;
-
-}
-
-/* Here is the Form */
-.example-full-width {
-    display: block;
-    margin: 0 auto;
-}
 
 .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 75%;
-  }
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
 
-  /* Here are the Buttons */
+/* Here are the Buttons */
 
-  .btn-signin{
-    display: block;
-    margin: 0 auto;
-    width: 75%;
-    margin-bottom: 10px;
-  }
+.btn-signin {
+  width: 75%;
+  margin-bottom: 10px;
+}
 
-  
+.errormessage {
+  color: red;
+  font-size: 15px;
+  margin-top: 10px;
+}

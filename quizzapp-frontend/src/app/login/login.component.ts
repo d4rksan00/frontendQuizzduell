@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,17 +7,28 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  showErrorMessage = false;
+  inputUsername = '';
+  inputPassword = '';
+
   constructor() {
     
    }
 
-  signInClicked() {
-    console.log('Sign in clicked!');
-
-  }
-
+ 
   signUpClicked() {
     console.log('Sign up clicked!');
+  }
+ 
+  loginClicked() {
+    if(this.inputUsername === 'admin' && this.inputPassword === 'admin') {
+      console.log('Login successful!');
+      this.showErrorMessage = false;
+    }else {
+      console.log('Login failed!');
+      this.showErrorMessage = true;
+    }
+
   }
 
 
