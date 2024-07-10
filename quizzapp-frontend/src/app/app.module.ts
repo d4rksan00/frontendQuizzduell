@@ -14,13 +14,21 @@ import {MatButtonModule} from '@angular/material/button';
 import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {QuizComponent} from "./quiz/quiz.component";
+import {GameOverviewComponent} from "./game-overview/game-overview.component";
+import {HomepageComponent} from "./homepage/homepage.component";
+import {PageDoesNotExistComponent} from "./page-does-not-exist/page-does-not-exist.component";
+import {RegistryComponent} from "./registry/registry.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     QuizRoundComponent,
-    QuizComponent
+    QuizComponent,
+    GameOverviewComponent,
+    HomepageComponent,
+    PageDoesNotExistComponent,
+    RegistryComponent
   ],
   imports: [
     BrowserModule,
