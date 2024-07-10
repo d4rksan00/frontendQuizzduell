@@ -7,17 +7,20 @@ import { LoginComponent } from './login/login.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatToolbarModule} from "@angular/material/toolbar";
 import {FormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
-import { HomepageComponent } from './homepage/homepage.component';
+import {MatToolbar} from "@angular/material/toolbar";
+import {HomepageComponent} from "./homepage/homepage.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomepageComponent
+
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,9 @@ import { HomepageComponent } from './homepage/homepage.component';
     FormsModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatToolbar,
   ],
   providers: [
     provideAnimationsAsync()
