@@ -12,13 +12,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { HomepageComponent } from './homepage/homepage.component';
+import { GameOverviewComponent } from './game-overview/game-overview.component';
+import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-exist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomepageComponent
+    HomepageComponent,
+    GameOverviewComponent,
+    PageDoesNotExistComponent
   ],
   imports: [
     BrowserModule,
