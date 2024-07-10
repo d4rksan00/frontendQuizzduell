@@ -12,12 +12,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {QuizComponent} from "./quiz/quiz.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    QuizRoundComponent
+    QuizRoundComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
     FormsModule,
     MatIconModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule
   ],
   providers: [
     provideAnimationsAsync()
