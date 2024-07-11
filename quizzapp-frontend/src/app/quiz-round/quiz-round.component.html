@@ -1,18 +1,18 @@
 <header class="header">
   <h1>{{ question.question }}</h1>
 </header>
-
+<div class="grid">
 <mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile
-    *ngFor="let a of shuffledAnswers"
-    (click)="clicked(a)"
-    [ngClass]="{'correct' : answered && a === question.correct_answer,
-    'incorrect' : answered && a !== question.correct_answer}"
-    class="answerbox">
+  <mat-grid-tile *ngFor="let a of shuffledAnswers">
+    <div class="answerbox"
+         (click)="clicked(a)"
+         [ngClass]="{'correct' : answered && a === question.correct_answer,
+                  'incorrect' : answered && a !== question.correct_answer}">
   {{ a }}
+    </div>
   </mat-grid-tile>
 </mat-grid-list>
-
 <mat-progress-bar mode="determinate" id="timer" [value]="progressbarValue"></mat-progress-bar>
+</div>
 
 
