@@ -10,18 +10,11 @@
             <p>Points: $PLAYER2_POINTS$</p>
         </div>
     </div>
-    <h3>CATEGORY</h3>
-    <app-single-round></app-single-round>
-    <app-single-round></app-single-round>
-    <app-single-round></app-single-round>
-    <app-single-round></app-single-round>
-    <app-single-round></app-single-round>
-    <app-single-round></app-single-round>   
-    
-    <div id="try">
-
-    </div>
-
-    <button style="color:green" (click)="winClick()">Win a Game</button>
-    <button style="color:red" (click)="loseClick()">Lose a Game</button>
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile>1</mat-grid-tile>
+        <mat-grid-tile>2</mat-grid-tile>
+        <mat-grid-tile>3</mat-grid-tile>
+        <mat-grid-tile>4</mat-grid-tile>
+    </mat-grid-list>
+      
 </div>
