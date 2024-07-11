@@ -18,7 +18,10 @@ import { GameOverviewComponent } from './game-overview/game-overview.component';
 import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-exist.component';
 import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-
+import { OpenGamesComponent } from './open-games/open-games/open-games.component';
+import {MatActionList, MatListItem} from "@angular/material/list";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     HomepageComponent,
     GameOverviewComponent,
     PageDoesNotExistComponent,
-    QuizRoundComponent
+    QuizRoundComponent,
+    OpenGamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,13 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     MatButtonModule,
     MatToolbarModule,
     MatToolbar,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressBarModule,
+    MatToolbar,
+    MatActionList,
+    MatListItem,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     provideAnimationsAsync()
