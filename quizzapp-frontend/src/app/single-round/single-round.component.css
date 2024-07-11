@@ -9,6 +9,10 @@
     text-align: center;
 }
 
+.player-one-container{
+    display: inline-block;
+}
+
 .button-1{
     background-color: #ff0000;
     
