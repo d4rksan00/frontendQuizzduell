@@ -26,8 +26,8 @@
 
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons"> <!--*ngIf="isVisible"-->
-        <button>Abort round</button>
-        <button mat-button matStepperNext>Next Question</button>
+        <button mat-button matStepperPrevious>Abort round</button>
+        <button mat-button matStepperNext>Next question</button>
       </div>
     </ng-template>
   </mat-step>
@@ -52,8 +52,8 @@
 
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons"> <!--*ngIf="isVisible"-->
-        <button>Abort round</button>
-        <button mat-button matStepperNext (click)="startTimer(30)">Next Question</button>
+        <button mat-button matStepperPrevious>Abort round</button>
+        <button mat-button matStepperNext (click)="startTimer(30)">Next question</button>
       </div>
     </ng-template>
   </mat-step>
@@ -78,8 +78,8 @@
 
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons"> <!--*ngIf="isVisible"-->
-        <button>Abort round</button>
-        <button mat-button matStepperNext (click)="startTimer(30)">Next Question</button>
+        <button mat-button matStepperPrevious>Abort round</button>
+        <button mat-button matStepperNext (click)="startTimer(30)">Next question</button>
       </div>
     </ng-template>
   </mat-step>
