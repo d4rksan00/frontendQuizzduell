@@ -1,0 +1,92 @@
+/* Container für zentrierte Inhalte */
+.container {
+  display: flex;
+  flex-direction: column; /* Anordnung der Elemente in einer Spalte */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+/* Header-Stile */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+.header p {
+  font-size: 16px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Liste der offenen Spiele */
+.listOfOpenGames {
+  width: 600px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 80vh; /* maximale Höhe für die Liste */
+  overflow-y: auto; /* Scrollbar hinzufügen, falls die Liste zu lang ist */
+  position: relative;
+}
+
+/* Stile für die Aktionliste */
+mat-action-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Stile für Listenelemente */
+mat-list-item {
+  display: flex;
+  justify-content: space-between; /* Platz zwischen den Elementen */
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Entfernt den unteren Rand beim letzten Listenelement */
+mat-list-item:last-child {
+  border-bottom: none;
+}
+
+/* Stile für den Namen des Spiels */
+.game-name {
+  color: #000;
+  font-size: 16px;
+}
+
+/* Stile für den Open-Button */
+.open-button {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  margin-left: 10px; /* Abstand zum vorherigen Element */
+  background-color: #3f51b5;
+  color: #ffffff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover-Effekt für den Open-Button */
+.open-button:hover {
+  background-color: #303f9f;
+}
+
+/* Stile für den Paginator */
+mat-paginator {
+  margin-top: 20px;
+}

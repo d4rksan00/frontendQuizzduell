@@ -20,7 +20,10 @@ import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatStepperModule} from "@angular/material/stepper";
-
+import { OpenGamesComponent } from './open-games/open-games/open-games.component';
+import {MatActionList, MatListItem} from "@angular/material/list";
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     HomepageComponent,
     GameOverviewComponent,
     PageDoesNotExistComponent,
-    QuizRoundComponent
+    QuizRoundComponent,
+    OpenGamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,13 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatButtonModule,
     MatToolbarModule,
     MatToolbar,
+    MatProgressBarModule,
+    MatProgressBarModule,
+    MatToolbar,
+    MatActionList,
+    MatListItem,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
     MatProgressBarModule,
     MatGridList,
     MatGridTile,
