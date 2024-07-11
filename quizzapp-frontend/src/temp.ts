@@ -1,4 +1,4 @@
-import {Question} from "./model/question";
+import {Question} from "./app/entity/question";
 
 export const dummyQuestion: Question = {
   difficulty: "easy",

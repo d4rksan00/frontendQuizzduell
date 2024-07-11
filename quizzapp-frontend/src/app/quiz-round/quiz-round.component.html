@@ -1,18 +1,87 @@
+<!-- Question posed as header -->
 <header class="header">
   <h1>{{ question.question }}</h1>
 </header>
-<div class="grid">
-<mat-grid-list cols="2" rowHeight="2:1">
-  <mat-grid-tile *ngFor="let a of shuffledAnswers">
-    <div class="answerbox"
-         (click)="clicked(a)"
-         [ngClass]="{'correct' : answered && a === question.correct_answer,
-                  'incorrect' : answered && a !== question.correct_answer}">
-  {{ a }}
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
-<mat-progress-bar mode="determinate" id="timer" [value]="progressbarValue"></mat-progress-bar>
-</div>
 
+<!-- Stepper starting 3 questions -->
+<mat-horizontal-stepper [linear]="true" #stepper>
+
+  <!-- First Question -->
+  <mat-step>
+    <ng-template matStepLabel>Question Nr.1</ng-template>
+    <ng-template matStepContent>
+      <div class="grid">
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let a of shuffledAnswers">
+            <div class="answerbox"
+                 (click)="clicked(a)"
+                 [ngClass]="{'correct' : answered && a === question.correct_answer,
+                  'incorrect' : answered && a !== question.correct_answer}">
+              {{ a }}
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-progress-bar mode="determinate" class="timer" [value]="progressbarValue"></mat-progress-bar>
+      </div>
+
+      <!--Buttons appearing after questions has been answered -->
+      <div class="buttons"> <!--*ngIf="isVisible"-->
+        <button>Abort round</button>
+        <button mat-button matStepperNext>Next Question</button>
+      </div>
+    </ng-template>
+  </mat-step>
+
+  <!-- Second Question -->
+  <mat-step>
+    <ng-template matStepLabel>Question Nr.2</ng-template>
+    <ng-template matStepContent>
+      <div class="grid">
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let a of shuffledAnswers">
+            <div class="answerbox"
+                 (click)="clicked(a)"
+                 [ngClass]="{'correct' : answered && a === question.correct_answer,
+                  'incorrect' : answered && a !== question.correct_answer}">
+              {{ a }}
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-progress-bar mode="determinate" class="timer" [value]="progressbarValue"></mat-progress-bar>
+      </div>
+
+      <!--Buttons appearing after questions has been answered -->
+      <div class="buttons"> <!--*ngIf="isVisible"-->
+        <button>Abort round</button>
+        <button mat-button matStepperNext (click)="startTimer(30)">Next Question</button>
+      </div>
+    </ng-template>
+  </mat-step>
+
+  <!-- Third Question -->
+  <mat-step>
+    <ng-template matStepLabel>Question Nr.3</ng-template>
+    <ng-template matStepContent>
+      <div class="grid">
+        <mat-grid-list cols="2" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let a of shuffledAnswers">
+            <div class="answerbox"
+                 (click)="clicked(a)"
+                 [ngClass]="{'correct' : answered && a === question.correct_answer,
+                  'incorrect' : answered && a !== question.correct_answer}">
+              {{ a }}
+            </div>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <mat-progress-bar mode="determinate" class="timer" [value]="progressbarValue"></mat-progress-bar>
+      </div>
+
+      <!--Buttons appearing after questions has been answered -->
+      <div class="buttons"> <!--*ngIf="isVisible"-->
+        <button>Abort round</button>
+        <button mat-button matStepperNext (click)="startTimer(30)">Next Question</button>
+      </div>
+    </ng-template>
+  </mat-step>
+</mat-horizontal-stepper>
 

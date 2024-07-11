@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {interval} from "rxjs";
-import {Question} from "../../model/question";
+import {Question} from "../entity/question";
 import {dummyQuestion} from "../../temp";
 
 @Component({
@@ -16,6 +16,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
   @Input() question: Question = dummyQuestion;
   shuffledAnswers: string[] = [];
   answered : boolean = false;
+  isVisible : boolean = false;
 
   startTimer(seconds: number) {
     const time = seconds;
@@ -25,7 +26,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
       this.progressbarValue = 100 - sec * 100 / time;
       this.curSec = sec;
 
-      if (this.curSec === time) {
+      if (this.curSec === time || this.answered) {
         sub.unsubscribe();
       }
     });
@@ -33,8 +34,11 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
 
   clicked(answer: string) {
     this.answered = true;
-    alert(answer)
+    this.isVisible = true;
     if (answer === this.question.correct_answer) {
+      alert("Your answer has been correct!");
+    } else {
+      alert("Unfortunately your answer has been false!");
     }
   }
 
