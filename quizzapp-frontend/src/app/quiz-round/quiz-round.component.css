@@ -24,12 +24,7 @@ body {
   padding: 20px 10px;
 }
 
-.button {
-  flex: 1 1 auto;
-  width: 500px;
-  height: 250px;
-  max-width: 500px;
-  max-height: 250px;
+.answerbox {
   border: 5px solid deeppink;
   margin: 20px;
   padding: 10px;
@@ -50,3 +45,12 @@ body {
   background-color: hotpink;
   color: #1354b2;
 }
+
+.correct {
+  background-color: green;
+}
+
+.incorrect {
+  background-color: red;
+}
+
