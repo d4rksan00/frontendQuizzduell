@@ -1,0 +1,32 @@
+.main-container{
+    margin: 5px;
+}
+
+.category-container{
+    width: 200px;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.button-1{
+    background-color: #ff0000;
+    
+}
+.button-2{
+    background-color: green;
+
+}
+.button-3{
+
+}
+
+.button-4{
+
+}
+.button-5{
+
+}
+.button-6{
+
+}
