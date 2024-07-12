@@ -1,23 +1,47 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {interval} from "rxjs";
-import {Question} from "../entity/question";
-import {dummyQuestion} from "../../temp";
+import {Question} from "../entity/Question";
+import {QuestionService} from "../service/question.service";
+import {QuestionComponent} from "../question/question.component";
 
 @Component({
   selector: 'app-quiz-round',
   templateUrl: './quiz-round.component.html',
   styleUrl: './quiz-round.component.css',
+  providers: [QuestionService]
 })
 export class QuizRoundComponent implements MatProgressBarModule, OnInit{
 
+  // Question variables
+  shuffledAnswers: string[] = [];
+  questions: Question[] = [];
+  questionService: QuestionService
+
+  // Timer variables
   progressbarValue = 100;
   curSec: number = 0;
-  @Input() question: Question = dummyQuestion;
-  shuffledAnswers: string[] = [];
+
+  // "clicked" variables
   answered : boolean = false;
   isVisible : boolean = false;
 
+  // constructor
+  constructor(questionService: QuestionService) {
+    this.questionService = questionService;
+  }
+
+  // Get questions from requested category
+  public getQuestions() {
+    return this.questionService.getQuestions().subscribe((response) => {
+      this.questions = response.results;
+      this.shuffledAnswers = this.shuffledAnswers.concat(this.questions[0]?.incorrect_answers)
+      this.shuffledAnswers.push(this.questions[0]?.correct_answer)
+      this.shuffledAnswers.sort(()=>Math.random()-0.5);
+    })
+  }
+
+  // Timer bar
   startTimer(seconds: number) {
     const time = seconds;
     const timer$ = interval(1000);
@@ -32,10 +56,11 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
     });
   }
 
+  //"clicked" event
   clicked(answer: string) {
     this.answered = true;
     this.isVisible = true;
-    if (answer === this.question.correct_answer) {
+    if (answer === this.questions[0]?.correct_answer) {
       alert("Your answer has been correct!");
     } else {
       alert("Unfortunately your answer has been false!");
@@ -43,10 +68,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
   }
 
   ngOnInit() {this.startTimer(30)
-    this.shuffledAnswers = this.shuffledAnswers.concat(this.question.incorrect_answers)
-    this.shuffledAnswers.push(this.question.correct_answer)
-    this.shuffledAnswers.sort(()=>Math.random()-0.5)
-  }
+    this.getQuestions()
 
-
+    }
 }

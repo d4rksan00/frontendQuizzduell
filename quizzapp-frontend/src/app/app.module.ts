@@ -20,7 +20,8 @@ import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import {MatStepperModule} from "@angular/material/stepper";
-
+import { QuestionComponent } from './question/question.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     HomepageComponent,
     GameOverviewComponent,
     PageDoesNotExistComponent,
-    QuizRoundComponent
+    QuizRoundComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import {MatStepperModule} from "@angular/material/stepper";
     MatProgressBarModule,
     MatGridList,
     MatGridTile,
-    MatStepperModule
+    MatStepperModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
