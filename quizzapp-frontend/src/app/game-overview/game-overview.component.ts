@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../service/quiz.service';
+import { Quiz } from '../entity/Quiz';
 
 export interface Tile {
   color: string;
@@ -12,22 +14,36 @@ export interface Tile {
   templateUrl: './game-overview.component.html',
   styleUrl: './game-overview.component.css'
 })
-export class GameOverviewComponent {
 
-  tiles: Tile[] = [
-    {text: 'One', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Four', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Four', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Four', cols: 1, rows: 1, color: 'lightblue'},
-    {text: 'Four', cols: 1, rows: 1, color: 'lightblue'},
-  ];
+export class GameOverviewComponent implements OnInit{
+  
+  quiz!: Quiz;
+  isRight: any;
+  isWrong: any;
+
+
+  constructor(private quizService: QuizService){
+
+  }
+  
+  ngOnInit(): void {
+    this.getQuizData();
+    this.buildpage();
+  }
+  buildpage() {
+    this.quiz?.player1Points
+  }
+
+
+  getQuizData(): void{
+    this.quizService.getQuizzes().subscribe(data => this.quiz= data);
+  }
 
   winClick() {
-    const element: HTMLElement | null = document.getElementById('button-1');
-    if (element) {
-      element.style.backgroundColor = 'green';
-    }
+    this.isRight = true;
+  }
+
+  loseClick(){
+    this.isWrong = true;
   }
 }

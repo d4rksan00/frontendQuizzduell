@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Quiz } from '../entity/Quiz';
 
 @Component({
   selector: 'app-single-round',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class SingleRoundComponent {
 
+  @Input() quiz!: Quiz
+  @Input() categoryNumber!: number
+
+  getAnswerStatus(index: number): string {
+    if (typeof this.quiz.quizRound[this.categoryNumber] === 'undefined' || typeof this.quiz.quizRound[this.categoryNumber].question[index] === 'undefined') {
+      return '';
+    }
+    return this.quiz.quizRound[this.categoryNumber].question[index].answerIsRight? 'correct': 'incorrect';
+  }
 }

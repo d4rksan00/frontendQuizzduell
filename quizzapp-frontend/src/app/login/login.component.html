@@ -3,13 +3,13 @@
     <div class="login-container">
         <mat-form-field class="example-full-width">
             <mat-label>Username/E-mail</mat-label>
-            <input (keydown.enter)="loginClicked()" [(ngModel)]="activePlayer.email" matInput placeholder="Ex. Dr. med. Rasen" value="">
+            <input (keydown.enter)="loginClicked()" [(ngModel)]="activePlayer.email" matInput placeholder="Username" value="">
             
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
             <mat-label>Password</mat-label>
-            <input (keydown.enter)="loginClicked()" [(ngModel)]="activePlayer.password" matInput placeholder="Ex. password123" value="">
+            <input (keydown.enter)="loginClicked()" [(ngModel)]="activePlayer.password" matInput placeholder="Password" value="">
         </mat-form-field>
 
         <button mat-flat-button color="primary" class="btn-signin" (click)="signUpClicked()">Sign Up</button>

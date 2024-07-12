@@ -20,6 +20,7 @@ import {QuizRoundComponent} from "./quiz-round/quiz-round.component";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { SingleRoundComponent } from './single-round/single-round.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatToolbarModule,
     MatToolbar,
     MatProgressBarModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()

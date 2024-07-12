@@ -3,7 +3,7 @@
     <div class="player-point-container">
         <div class="player-container">
             <h2>Player 1</h2>
-            <p>Points: $PLAYER1_POINTS$</p>
+            <p [(ngModel)]="quiz.player1Points">Points: </p>
         </div>
         <div class="player-container">
             <h2>Player 2</h2>
@@ -11,28 +11,15 @@
         </div>
     </div>
 
-    <div class="anzeige-container">
-        <div class="player-one-container">
-            <button mat-fab extended class="button-1">
-            </button>
-            <button mat-fab extended class="button-2">
-            </button>
-            <button mat-fab extended class="button-3">
-            </button>
-        </div>
-        <div class="category-container">Category 1-6</div>
-        <div class="player-two-container">
-            <button mat-fab extended class="button-4">
-            </button>
-            <button mat-fab extended class="button-5">
-            </button>
-            <button mat-fab extended class="button-6">
-            </button>
-        </div>
-    </div>
+
+
+    <app-single-round *ngFor="let r of [].constructor(6); let i = index" [categoryNumber]="i" [quiz]="quiz">
+
+    </app-single-round>
 
     <div class="button-container">
         <button style="color:green" (click)="winClick()">WIN a game</button>
-        <button style="color: red">lose a game</button>
+        <button style="color: red"(click)="loseClick()">lose a game</button>
     </div>
+
 </div>

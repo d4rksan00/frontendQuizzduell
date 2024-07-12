@@ -34,7 +34,13 @@
     display: inline-block;
 }
 
-mat-grid-tile {
-    background: lightblue;
+.correct{
+    background-color: green;
 }
+
+.incorrect{
+    background-color: red;
+}
+
+
 

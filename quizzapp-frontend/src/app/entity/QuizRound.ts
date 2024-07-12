@@ -1,21 +1,14 @@
+import { Question } from "./Question";
+
 export class QuizRound {
     
+    quizRoundId: number;
+    question: Question[] = []
     
-    private Long id;
 
-    private List<Question> question = new ArrayList<>();
-
-    private Player activePlayer;
-    
-    
-    
-    
-    
-    
-    constructor(){
+    constructor(quizRoundId: number, question: Question[]){
+        this.quizRoundId = quizRoundId;
+        this.question = question;
 
     }
-
-
-
 }

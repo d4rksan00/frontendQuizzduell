@@ -13,24 +13,14 @@
     display: inline-block;
 }
 
-.button-1{
-    background-color: #ff0000;
-    
+.player-two-container{
+    display: inline-block;
 }
-.button-2{
+
+.correct{
     background-color: green;
-
-}
-.button-3{
-
 }
 
-.button-4{
-
-}
-.button-5{
-
-}
-.button-6{
-
+.incorrect{
+    background-color: #ff0000;
 }
