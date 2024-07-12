@@ -28,6 +28,7 @@ import { SingleRoundComponent } from './single-round/single-round.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     QuizRoundComponent,
     OpenGamesComponent,
     SingleRoundComponent,
-    
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

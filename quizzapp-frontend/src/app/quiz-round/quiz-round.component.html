@@ -1,6 +1,6 @@
 <!-- Question posed as header -->
 <header class="header">
-  <h1>{{ question.question }}</h1>
+  <h1>{{ questions[0]?.question }}</h1>
 </header>
 
 <!-- Stepper starting 3 questions -->
@@ -15,8 +15,8 @@
           <mat-grid-tile *ngFor="let a of shuffledAnswers">
             <div class="answerbox"
                  (click)="clicked(a)"
-                 [ngClass]="{'correct' : answered && a === question.correct_answer,
-                  'incorrect' : answered && a !== question.correct_answer}">
+                 [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
+                  'incorrect' : answered && a !== questions[0]?.correct_answer}">
               {{ a }}
             </div>
           </mat-grid-tile>
@@ -41,8 +41,8 @@
           <mat-grid-tile *ngFor="let a of shuffledAnswers">
             <div class="answerbox"
                  (click)="clicked(a)"
-                 [ngClass]="{'correct' : answered && a === question.correct_answer,
-                  'incorrect' : answered && a !== question.correct_answer}">
+                 [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
+                  'incorrect' : answered && a !== questions[0]?.correct_answer}">
               {{ a }}
             </div>
           </mat-grid-tile>
@@ -67,8 +67,8 @@
           <mat-grid-tile *ngFor="let a of shuffledAnswers">
             <div class="answerbox"
                  (click)="clicked(a)"
-                 [ngClass]="{'correct' : answered && a === question.correct_answer,
-                  'incorrect' : answered && a !== question.correct_answer}">
+                 [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
+                  'incorrect' : answered && a !== questions[0]?.correct_answer}">
               {{ a }}
             </div>
           </mat-grid-tile>
