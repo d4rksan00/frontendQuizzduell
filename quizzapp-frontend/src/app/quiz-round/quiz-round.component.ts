@@ -1,9 +1,8 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {interval} from "rxjs";
 import {Question} from "../entity/Question";
 import {QuestionService} from "../service/question.service";
-import {QuestionComponent} from "../question/question.component";
 
 @Component({
   selector: 'app-quiz-round',
@@ -69,6 +68,5 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
 
   ngOnInit() {this.startTimer(30)
     this.getQuestions()
-
     }
 }
