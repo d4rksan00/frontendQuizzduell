@@ -30,6 +30,12 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit{
     this.questionService = questionService;
   }
 
+  htmlDecode(input: string):string {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(input, 'text/html');
+    return doc.documentElement.textContent!;
+  }
+
   // Get questions from requested category
   public getQuestions() {
     return this.questionService.getQuestions().subscribe((response) => {

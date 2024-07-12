@@ -1,6 +1,6 @@
 <!-- Question posed as header -->
 <header class="header">
-  <h1>{{ questions[0]?.question }}</h1>
+  <h1>{{ htmlDecode(questions[0]?.question!) }}</h1>
 </header>
 
 <!-- Stepper starting 3 questions -->
@@ -17,7 +17,7 @@
                  (click)="clicked(a)"
                  [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
                   'incorrect' : answered && a !== questions[0]?.correct_answer}">
-              {{ a }}
+              {{ htmlDecode(a) }}
             </div>
           </mat-grid-tile>
         </mat-grid-list>
@@ -43,7 +43,7 @@
                  (click)="clicked(a)"
                  [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
                   'incorrect' : answered && a !== questions[0]?.correct_answer}">
-              {{ a }}
+              {{ htmlDecode(a) }}
             </div>
           </mat-grid-tile>
         </mat-grid-list>
@@ -69,7 +69,7 @@
                  (click)="clicked(a)"
                  [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
                   'incorrect' : answered && a !== questions[0]?.correct_answer}">
-              {{ a }}
+              {{ htmlDecode(a) }}
             </div>
           </mat-grid-tile>
         </mat-grid-list>
