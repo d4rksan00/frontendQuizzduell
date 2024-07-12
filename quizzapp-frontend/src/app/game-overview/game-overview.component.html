@@ -3,11 +3,23 @@
     <div class="player-point-container">
         <div class="player-container">
             <h2>Player 1</h2>
-            <p>Points: $PLAYER1_POINTS$</p>
+            <p [(ngModel)]="quiz.player1Points">Points: </p>
         </div>
         <div class="player-container">
             <h2>Player 2</h2>
             <p>Points: $PLAYER2_POINTS$</p>
         </div>
     </div>
+
+
+
+    <app-single-round *ngFor="let r of [].constructor(6); let i = index" [categoryNumber]="i" [quiz]="quiz">
+
+    </app-single-round>
+
+    <div class="button-container">
+        <button style="color:green" (click)="winClick()">WIN a game</button>
+        <button style="color: red"(click)="loseClick()">lose a game</button>
+    </div>
+
 </div>

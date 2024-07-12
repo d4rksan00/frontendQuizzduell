@@ -24,6 +24,10 @@ import { OpenGamesComponent } from './open-games/open-games/open-games.component
 import {MatActionList, MatListItem} from "@angular/material/list";
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SingleRoundComponent } from './single-round/single-round.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -34,6 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PageDoesNotExistComponent,
     QuizRoundComponent,
     OpenGamesComponent,
+    SingleRoundComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatProgressBarModule,
     MatGridList,
     MatGridTile,
-    MatStepperModule
+    MatStepperModule,
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [
     provideAnimationsAsync()
