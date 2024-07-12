@@ -1,5 +1,6 @@
 import { Question } from "./Question";
 
+
 export class QuizRound {
     
     quizRoundId: number;

@@ -16,71 +16,77 @@ export class QuizService {
           "quizRoundId": 1,
           "question": [
             {
-              "questionId": 1,
-              "question": "Wie viele Bundesländer hat Deutschland?",
-              "answer": "16",
-              "wrongAnswer1": "15",
-              "wrongAnswer2": "17",
-              "wrongAnswer3": "18",
-              "category": "Geo",
               "difficulty": "hard",
+              "category": "Geo",
+              "question": "Wie viele Bundesländer hat Deutschland?",
+              "correct_answer": "16",
+              "incorrect_answers": [
+                "15",
+                "14",
+                "13"
+              ],
               "answerIsRight": true
             },
             {
-              "questionId": 2,
+              "difficulty": "hard",
+              "category": "Geo",
               "question": "Wie viele Einwohner hat Deutschland?",
-              "answer": "82 Mio",
-              "wrongAnswer1": "80 Mio",
-              "wrongAnswer2": "85 Mio",
-              "wrongAnswer3": "90 Mio",
-              "category": "Geo",
-              "difficulty": "hard",
-              "answerIsRight": false
-            },
-            {
-              "questionId": 3,
-              "question": "Wie viele Bundesländer hat Deutschland?",
-              "answer": "16",
-              "wrongAnswer1": "15",
-              "wrongAnswer2": "17",
-              "wrongAnswer3": "18",
-              "category": "Geo",
-              "difficulty": "hard",
-              "answerIsRight": false
-            },
-            {
-              "questionId": 1,
-              "question": "Wie viele Bundesländer hat Deutschland?",
-              "answer": "16",
-              "wrongAnswer1": "15",
-              "wrongAnswer2": "17",
-              "wrongAnswer3": "18",
-              "category": "Geo",
-              "difficulty": "hard",
+              "correct_answer": "85 Mio",
+              "incorrect_answers": [
+                "80 Mio",
+                "82 Mio",
+                "90 Mio"
+              ],
               "answerIsRight": true
             },
             {
-              "questionId": 2,
-              "question": "Wie viele Einwohner hat Deutschland?",
-              "answer": "82 Mio",
-              "wrongAnswer1": "80 Mio",
-              "wrongAnswer2": "85 Mio",
-              "wrongAnswer3": "90 Mio",
-              "category": "Geo",
               "difficulty": "hard",
+              "category": "Geo",
+              "question": "Wie viele Bundesländer hat Deutschland?",
+              "correct_answer": "16",
+              "incorrect_answers": [
+                "15",
+                "14",
+                "13"
+              ],
               "answerIsRight": false
             },
             {
-              "questionId": 3,
-              "question": "Wie viele Bundesländer hat Deutschland?",
-              "answer": "16",
-              "wrongAnswer1": "15",
-              "wrongAnswer2": "17",
-              "wrongAnswer3": "18",
-              "category": "Geo",
               "difficulty": "hard",
-              "answerIsRight": false
-            }
+              "category": "Geo",
+              "question": "Wie viele Bundesländer hat Deutschland?",
+              "correct_answer": "16",
+              "incorrect_answers": [
+                "15",
+                "14",
+                "13"
+              ],
+              "answerIsRight": true
+            },
+            {
+              "difficulty": "hard",
+              "category": "Geo",
+              "question": "Wie viele Einwohner hat Deutschland?",
+              "correct_answer": "85 Mio",
+              "incorrect_answers": [
+                "80 Mio",
+                "82 Mio",
+                "90 Mio"
+              ],
+              "answerIsRight": true
+            },
+            {
+              "difficulty": "hard",
+              "category": "Geo",
+              "question": "Wie viele Bundesländer hat Deutschland?",
+              "correct_answer": "16",
+              "incorrect_answers": [
+                "15",
+                "14",
+                "13"
+              ],
+              "answerIsRight": true
+            },
           ],
         },
         {
@@ -88,70 +94,76 @@ export class QuizService {
           "question":
             [
               {
-                "questionId": 4,
+                "difficulty": "hard",
+                "category": "Geo",
                 "question": "Wie viele Bundesländer hat Deutschland?",
-                "answer": "16",
-                "wrongAnswer1": "15",
-                "wrongAnswer2": "17",
-                "wrongAnswer3": "18",
-                "category": "Geo",
-                "difficulty": "hard",
-                "answerIsRight": false
-              },
-              {
-                "questionId": 5,
-                "question": "Wie viele Einwohner hat Deutschland?",
-                "answer": "82 Mio",
-                "wrongAnswer1": "80 Mio",
-                "wrongAnswer2": "85 Mio",
-                "wrongAnswer3": "90 Mio",
-                "category": "Geo",
-                "difficulty": "hard",
-                "answerIsRight": false
-              },
-              {
-                "questionId": 6,
-                "question": "Wie viele Bundesländer hat Deutschland?",
-                "answer": "16",
-                "wrongAnswer1": "15",
-                "wrongAnswer2": "17",
-                "wrongAnswer3": "18",
-                "category": "Geo",
-                "difficulty": "hard",
-                "answerIsRight": false
-              },
-              {
-                "questionId": 4,
-                "question": "Wie viele Bundesländer hat Deutschland?",
-                "answer": "16",
-                "wrongAnswer1": "15",
-                "wrongAnswer2": "17",
-                "wrongAnswer3": "18",
-                "category": "Geo",
-                "difficulty": "hard",
-                "answerIsRight": false
-              },
-              {
-                "questionId": 5,
-                "question": "Wie viele Einwohner hat Deutschland?",
-                "answer": "82 Mio",
-                "wrongAnswer1": "80 Mio",
-                "wrongAnswer2": "85 Mio",
-                "wrongAnswer3": "90 Mio",
-                "category": "Geo",
-                "difficulty": "hard",
+                "correct_answer": "16",
+                "incorrect_answers": [
+                  "15",
+                  "14",
+                  "13"
+                ],
                 "answerIsRight": true
               },
               {
-                "questionId": 6,
-                "question": "Wie viele Bundesländer hat Deutschland?",
-                "answer": "16",
-                "wrongAnswer1": "15",
-                "wrongAnswer2": "17",
-                "wrongAnswer3": "18",
-                "category": "Geo",
                 "difficulty": "hard",
-                "answerIsRight": false
+                "category": "Geo",
+                "question": "Wie viele Einwohner hat Deutschland?",
+                "correct_answer": "85 Mio",
+                "incorrect_answers": [
+                  "80 Mio",
+                  "82 Mio",
+                  "90 Mio"
+                ],
+                "answerIsRight": true
+              },
+              {
+                "difficulty": "hard",
+                "category": "Geo",
+                "question": "Wie viele Bundesländer hat Deutschland?",
+                "correct_answer": "16",
+                "incorrect_answers": [
+                  "15",
+                  "14",
+                  "13"
+                ],
+                "answerIsRight": true
+              },
+              {
+                "difficulty": "hard",
+                "category": "Geo",
+                "question": "Wie viele Bundesländer hat Deutschland?",
+                "correct_answer": "16",
+                "incorrect_answers": [
+                  "15",
+                  "14",
+                  "13"
+                ],
+                "answerIsRight": true
+              },
+              {
+                "difficulty": "hard",
+                "category": "Geo",
+                "question": "Wie viele Einwohner hat Deutschland?",
+                "correct_answer": "85 Mio",
+                "incorrect_answers": [
+                  "80 Mio",
+                  "82 Mio",
+                  "90 Mio"
+                ],
+                "answerIsRight": true
+              },
+              {
+                "difficulty": "hard",
+                "category": "Geo",
+                "question": "Wie viele Bundesländer hat Deutschland?",
+                "correct_answer": "16",
+                "incorrect_answers": [
+                  "15",
+                  "14",
+                  "13"
+                ],
+                "answerIsRight": true
               },
             ]
         },
