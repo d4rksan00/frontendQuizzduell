@@ -16,27 +16,29 @@ export interface Tile {
 })
 
 export class GameOverviewComponent implements OnInit{
-  
-  quiz!: Quiz;
-  isRight: any;
-  isWrong: any;
+
+  quiz$ = this.quizService.getQuizzes();
+
+  // quiz!: Quiz;
+  isRight: boolean | undefined;
+  isWrong: boolean | undefined;
 
 
   constructor(private quizService: QuizService){
 
   }
-  
+
   ngOnInit(): void {
     this.getQuizData();
     this.buildpage();
   }
   buildpage() {
-    this.quiz?.player1Points
+    // this.quiz?.player1Points
   }
 
 
   getQuizData(): void{
-    this.quizService.getQuizzes().subscribe(data => this.quiz= data);
+    // this.quizService.getQuizzes().subscribe(data => this.quiz= data);
   }
 
   winClick() {

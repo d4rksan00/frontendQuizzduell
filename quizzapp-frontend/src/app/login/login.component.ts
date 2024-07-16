@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit{
   activePlayer = new Player('', '');
 
   constructor(private router: Router, private dataSharingService: DataSharingService) {
-    
+
    }
 
    ngOnInit() {
@@ -24,13 +24,13 @@ export class LoginComponent implements OnInit{
   signUpClicked() {
     console.log('Sign up clicked!');
   }
- 
-  loginClicked() {
+
+  async loginClicked() {
     if(this.activePlayer.email === 'admin' && this.activePlayer.password === 'admin') {
       console.log('Login successful!');
       this.dataSharingService.changeActivePlayer(this.activePlayer);
-      this.router.navigate(['/homepage']);
-    }else {
+      await this.router.navigate(['homepage', 'overview']);
+    } else {
       console.log('Login failed!');
       this.showErrorMessage = true;
     }
