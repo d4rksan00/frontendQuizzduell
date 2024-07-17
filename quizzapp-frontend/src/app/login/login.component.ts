@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Player } from '../entity/Player';
 import { DataSharingService } from '../service/data-sharing.service';
+import {firstValueFrom} from "rxjs";
+import {ReactiveFormsModule, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,16 @@ import { DataSharingService } from '../service/data-sharing.service';
 export class LoginComponent implements OnInit{
 
   showErrorMessage = false;
+
+    playerForm = new FormGroup({
+      email: new FormControl<string>('', {nonNullable: true, validators: Validators.email}),
+      password: new FormControl<string>('', {nonNullable: true})
+    });
+
   activePlayer = new Player('', '');
 
   constructor(private router: Router, private dataSharingService: DataSharingService) {
-    
+
    }
 
    ngOnInit() {
@@ -23,17 +31,18 @@ export class LoginComponent implements OnInit{
 
   signUpClicked() {
     console.log('Sign up clicked!');
+    this.router.navigate(['/signup']);
   }
- 
-  loginClicked() {
-    if(this.activePlayer.email === 'admin' && this.activePlayer.password === 'admin') {
-      console.log('Login successful!');
-      this.dataSharingService.changeActivePlayer(this.activePlayer);
-      this.router.navigate(['/homepage']);
-    }else {
-      console.log('Login failed!');
-      this.showErrorMessage = true;
-    }
 
+  async submitClicked() {
+    const email = this.playerForm.controls.email.value;
+    const password = this.playerForm.controls.password.value;
+    console.log(this.playerForm.controls.email.valid)
+    const loginPlayer = await firstValueFrom(this.dataSharingService.login(email, password))
+    if (loginPlayer) {
+      await this.router.navigate(['homepage', 'overview']);
+    } else {
+      this.showErrorMessage = true
+    }
   }
 }

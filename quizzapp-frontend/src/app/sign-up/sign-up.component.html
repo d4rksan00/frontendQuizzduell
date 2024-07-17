@@ -1,20 +1,24 @@
 <div class="main-container">
   <img src="assets/images/quizzAppLogo.jpeg" />
-  <div class="login-container">
-    <div class="example-container">
-      <mat-form-field hintLabel="Max 10 characters">
-        <mat-label>Enter some input</mat-label>
-        <input matInput #input maxlength="10" placeholder="Ex. Nougat" (input)="onInput($event)" />
-        <mat-hint align="end">{{value().length}}/10</mat-hint>
-      </mat-form-field>
+  <div class="sign-container">
+    <mat-form-field hintLabel="Max 10 characters">
+        <mat-label>Username</mat-label>
+        <!--<input (keydown.enter)="createAccClicked()" [(ngModel)]="activePlayer.username" matInput placeholder="Ex. Dr. med. Rasen" value="">-->
+    </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Select me</mat-label>
-        <mat-select>
-          <mat-option value="option">Option</mat-option>
-        </mat-select>
-        <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-      </mat-form-field>
-    </div>
+    <mat-form-field hintLabel="Max 10 characters">
+        <mat-label>E-Mail</mat-label>
+       <!-- <input (keydown.enter)="createAccClicked()" [(ngModel)]="activePlayer.email" matInput placeholder="Ex. Dr. med. Rasen@intheKindergarden.com" value="">-->
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 10 characters">
+        <mat-label>Password</mat-label>
+        <!--<input (keydown.enter)="createAccClicked()" [(ngModel)]="activePlayer.password" matInput placeholder="Ex. password123" value="">-->
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="btn-createAcc" (click)="createAccClicked()">Create Account</button>
+  </div>
+  <div class="errormessage-container" *ngIf="showErrorMessage">
+    <p class="errormessage">The given credentials dont match, please try again!</p>
   </div>
 </div>

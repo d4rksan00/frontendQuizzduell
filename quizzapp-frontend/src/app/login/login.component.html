@@ -1,20 +1,23 @@
 <div class="main-container">
     <img src="assets/images/quizzAppLogo.jpeg" />
     <div class="login-container">
-        <mat-form-field class="example-full-width">
+      <form [formGroup]="playerForm" (ngSubmit)="submitClicked()">
+        <mat-form-field>
             <mat-label>Username/E-mail</mat-label>
-            <input (keydown.enter)="loginClicked()" [(ngModel)]="activePlayer.email" matInput placeholder="Ex. Dr. med. Rasen" value="">
-            
+            <input type="text" formControlName="email" matInput placeholder="Ex. Dr. med. Rasen" value="" />
+
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field >
             <mat-label>Password</mat-label>
-            <input (keydown.enter)="loginClicked()" [(ngModel)]="activePlayer.password" matInput placeholder="Ex. password123" value="">
+            <input type="text" formControlName="password" matInput placeholder="Ex. password123" value="" />
         </mat-form-field>
 
-        <button mat-flat-button color="primary" class="btn-signin" (click)="signUpClicked()">Sign Up</button>
-        <button mat-flat-button color="primary" class="btn-signin" (click)="loginClicked()">Login</button>
+        <button mat-flat-button color="primary" class="btn-signin" (click)="signUpClicked()" type="button">Sign Up</button>
+        <button mat-flat-button color="primary" class="btn-signin" type="submit">Submit</button>
+      </form>
     </div>
+
     <div class="errormessage-container" *ngIf="showErrorMessage">
         <p class="errormessage">The given credentials dont match, please try again!</p>
     </div>

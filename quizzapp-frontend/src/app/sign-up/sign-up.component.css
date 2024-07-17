@@ -7,10 +7,10 @@
 }
 
 
-.login-container {
+.signup-container {
   background-color: #1354b2;
-  width: 1000px;
-  height: 1000px;
+  width: 300px;
+  height: 300px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -26,9 +26,9 @@ img {
   border-radius: 100px;
 }
 
-
-.example-container mat-form-field + mat-form-field {
-  margin-left: 8px;
+.btn-createAcc {
+  width: 75%;
+  margin-bottom: 10px;
 }
 
 .errormessage {
