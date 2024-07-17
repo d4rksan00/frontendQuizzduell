@@ -24,9 +24,17 @@ export class LoginComponent {
     })
   });
   constructor(private router: Router, private dataSharingService: DataSharingService) {}
-  signUpClicked() {
-    console.log('Sign up clicked!');
-    this.router.navigate(['/signup']);
+  async signUpClicked() {
+    try {
+      const success = await this.router.navigate(['signup']);
+      if (success) {
+        console.log('Navigation successful');
+      } else {
+        console.log('Navigation failed');
+      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+    }
   }
   async submitClicked() {
     const email = this.playerForm.controls.email.value;
