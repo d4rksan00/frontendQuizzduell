@@ -1,21 +1,21 @@
 <div class="page-container">
-    <img src="assets/images/quizzAppLogo.jpeg" />
-      <form [formGroup]="playerForm" (ngSubmit)="submitClicked()">
-        <mat-form-field>
-            <mat-label>E-mail</mat-label>
-            <input type="text" formControlName="email" matInput placeholder="Dr.med.Rasen@gmx.de" value="" />
-        </mat-form-field>
+  <img src="assets/images/quizzAppLogo.jpeg" />
+  <form [formGroup]="playerForm" (ngSubmit)="submitClicked()">
+    <mat-form-field>
+      <mat-label>E-mail</mat-label>
+        <input type="text" formControlName="email" matInput placeholder="Dr.med.Rasen@gmx.de" value="" />
+    </mat-form-field>
 
-        <mat-form-field >
-            <mat-label>Password</mat-label>
-            <input type="text" formControlName="password" matInput placeholder="password123" value="" />
-        </mat-form-field>
+    <mat-form-field >
+      <mat-label>Password</mat-label>
+        <input type="text" formControlName="password" matInput placeholder="password123" value="" />
+    </mat-form-field>
 
-        <button mat-flat-button color="primary" class="btn-signin" type="button" (click)="signUpClicked()">Sign Up</button>
-        <button mat-flat-button color="primary" class="btn-signin" type="submit">Submit</button>
-      </form>
+    <button mat-flat-button color="primary" class="btn-signin" type="button" (click)="signUpClicked()">Sign Up</button>
+    <button mat-flat-button color="primary" class="btn-signin" type="submit" [disabled]="!playerForm.valid">Submit</button>
+  </form>
 
-    <div class="errormessage-container" *ngIf="showErrorMessage">
-        <p class="errormessage">The given credentials dont match, please try again!</p>
-    </div>
+  <div class="errormessage-container" *ngIf="showErrorMessage">
+    <p class="errormessage">The given credentials dont match, please try again!</p>
+  </div>
 </div>
