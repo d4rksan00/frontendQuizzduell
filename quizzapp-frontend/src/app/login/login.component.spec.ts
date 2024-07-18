@@ -1,20 +1,24 @@
 import {LoginComponent} from './login.component';
-import {byPlaceholder, createComponentFactory, Spectator, SpectatorElement} from "@ngneat/spectator";
+import {byPlaceholder, createComponentFactory, mockProvider, Spectator, SpectatorElement} from "@ngneat/spectator";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {Router} from "@angular/router";
 
 describe('LoginComponent', () => {
   let spectator: Spectator<LoginComponent>;
 
   const createComponent = createComponentFactory({
     component: LoginComponent,
-    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule]
-  })
+    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+    providers: [
+      mockProvider(Router)
+    ],
+  });
 
   beforeEach(async () => {
     spectator = createComponent();
-  })
+  });
 
   it('should create', () => {
     expect(spectator).toBeTruthy();
@@ -68,6 +72,19 @@ describe('LoginComponent', () => {
     expect(submitButton.disabled).toBeTrue();
   });
 
+  it('should enable the submit button if the form is valid', () => {
 
+    const emailInput = spectator.query(byPlaceholder('Dr.med.Rasen@gmx.de')) as HTMLInputElement;
+    const passwordInput = spectator.query(byPlaceholder('password123')) as HTMLInputElement;
+    const submitButton = spectator.query('button[type="submit"]') as HTMLButtonElement;
+
+    spectator.typeInElement('valid.email@example.com', emailInput);
+    spectator.typeInElement('Password123', passwordInput);
+    spectator.detectChanges();
+
+    expect(spectator.component.playerForm.valid).toBeTrue();
+
+    expect(submitButton.disabled).toBeFalse();
+  });
 
 });
