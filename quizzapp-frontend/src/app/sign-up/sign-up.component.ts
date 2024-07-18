@@ -1,32 +1,51 @@
-import {ChangeDetectionStrategy, Component, OnInit, signal} from '@angular/core';
-import {Player} from "../entity/Player";
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {DataSharingService} from "../service/data-sharing.service";
-
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {firstValueFrom} from "rxjs";
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
-export class SignUpComponent implements OnInit {
+
+export class SignUpComponent {
+
   showErrorMessage = false;
-  activePlayer = new Player('', '');
 
+  playerForm = new FormGroup({
+    email: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required, Validators.email]
+    }),
+    password: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [Validators.required]
+    })
+  });
   constructor(private router: Router, private dataSharingService: DataSharingService) {
-
   }
-
-  ngOnInit() {
-    this.dataSharingService.activePlayer.subscribe((activePlayer) => this.activePlayer = activePlayer);
+  async cancelClicked() {
+    try {
+      const success = await this.router.navigate(['']);
+      if (success) {
+        console.log('Navigation successful');
+      } else {
+        console.log('Navigation failed');
+      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+    }
   }
+  async createAccClicked() {
+    const email = this.playerForm.controls.email.value;
+    const password = this.playerForm.controls.password.value;
 
-  createAccClicked() {
-    if(this.activePlayer.email === 'admin' && this.activePlayer.password === 'admin') {
-      console.log('Login successful!');
-      this.dataSharingService.changeActivePlayer(this.activePlayer);
-      this.router.navigate(['/homepage/overview']);
-    }else {
-      console.log('Login failed!');
+    const registeredUser = await firstValueFrom(this.dataSharingService.register(email, password));
+
+    if (registeredUser) {
+      await this.router.navigate(['homepage', 'overview']);
+    } else {
       this.showErrorMessage = true;
     }
 

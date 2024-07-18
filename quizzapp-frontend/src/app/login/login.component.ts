@@ -40,8 +40,9 @@ export class LoginComponent {
   async submitClicked() {
     const email = this.playerForm.controls.email.value;
     const password = this.playerForm.controls.password.value;
-    console.log(this.playerForm.controls.email.valid)
+
     const loginPlayer = await firstValueFrom(this.dataSharingService.login(email, password))
+
     if (loginPlayer) {
       await this.router.navigate(['homepage', 'overview']);
     } else {

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, tap} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {Player} from '../entity/Player';
 // import { HttpClient, HttpHeaders } from "@angular/common/http";
 
@@ -23,6 +23,12 @@ export class DataSharingService {
     // const headers = new HttpHeaders().append('Authorization', `Basic ${window.btoa(concatedUsernamePassword)}`);
     // return this.http.get<Player>('http://localhost:8080/login', {headers: headers}).pipe(tap(player => this.activePlayer.next(player)));
     this.activePlayer.next(new Player(email, password));
+    return this.currentActivePlayer;
+  }
+
+  register(email: string, password: string): Observable<Player> {
+    const player = new Player(email, password);
+    this.activePlayer.next(player);
     return this.currentActivePlayer;
   }
 }
