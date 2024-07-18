@@ -1,19 +1,17 @@
 import {LoginComponent} from './login.component';
-import {byPlaceholder, createComponentFactory, mockProvider, Spectator, SpectatorElement} from "@ngneat/spectator";
+import {byPlaceholder, createComponentFactory, Spectator} from "@ngneat/spectator";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
+import {SpectatorElement} from "@ngneat/spectator";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('LoginComponent', () => {
   let spectator: Spectator<LoginComponent>;
-
   const createComponent = createComponentFactory({
     component: LoginComponent,
-    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
-    providers: [
-      mockProvider(Router)
-    ],
+    imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, RouterTestingModule],
   });
 
   beforeEach(async () => {
@@ -31,7 +29,7 @@ describe('LoginComponent', () => {
 
     expect(password).toEqual('');
     expect(email).toEqual('');
-  })
+  });
 
   it('should have user input', async () => {
 
@@ -42,7 +40,7 @@ describe('LoginComponent', () => {
     const email = spectator.component.playerForm.controls.email.value;
     expect(email).toEqual('a@b.c');
 
-  })
+  });
 
   it('email should not be valid if wrong email is inserted', () =>{
 
@@ -53,9 +51,7 @@ describe('LoginComponent', () => {
     const email = spectator.component.playerForm.controls.email;
     expect(email.valid).toBeFalse();
 
-  })
-
-  //TODO: Form invalid = disabled & enabled, function navigate (has been called)
+  });
 
   it('should disable the submit button if the form is invalid', () => {
 
@@ -85,6 +81,18 @@ describe('LoginComponent', () => {
     expect(spectator.component.playerForm.valid).toBeTrue();
 
     expect(submitButton.disabled).toBeFalse();
+  });
+
+  it('should navigate to signup when signUpClicked is called', () => {
+
+    const router: Router = spectator.inject(Router);
+    const navigateSpy = spyOn(router, "navigate").and.resolveTo(true);
+
+    spectator.component.signUpClicked();
+
+    const expectedRoute = ['signup'];
+
+    expect(navigateSpy).toHaveBeenCalledWith(expectedRoute);
   });
 
 });
