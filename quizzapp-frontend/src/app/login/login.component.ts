@@ -23,7 +23,8 @@ export class LoginComponent {
       validators: [Validators.required]
     })
   });
-  constructor(private router: Router, private dataSharingService: DataSharingService) {}
+  constructor(private router: Router, private dataSharingService: DataSharingService) {
+  }
   async signUpClicked() {
     try {
       const success = await this.router.navigate(['signup']);

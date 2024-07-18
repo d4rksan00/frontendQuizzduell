@@ -3,12 +3,12 @@
   <form [formGroup]="playerForm" (ngSubmit)="submitClicked()">
     <mat-form-field>
       <mat-label>E-mail</mat-label>
-        <input type="text" formControlName="email" matInput placeholder="Dr.med.Rasen@gmx.de" value="" />
+        <input type="text" formControlName="email" matInput placeholder="Dr.med.Rasen@gmx.de"/>
     </mat-form-field>
 
     <mat-form-field >
       <mat-label>Password</mat-label>
-        <input type="text" formControlName="password" matInput placeholder="password123" value="" />
+        <input type="text" formControlName="password" matInput placeholder="password123"/>
     </mat-form-field>
 
     <button mat-flat-button color="primary" class="btn-signin" type="button" (click)="signUpClicked()">Sign Up</button>
