@@ -56,7 +56,7 @@ describe('LoginComponent', () => {
   it('should disable the submit button if the form is invalid', () => {
 
     const emailInput = spectator.query(byPlaceholder('Dr.med.Rasen@gmx.de')) as HTMLInputElement;
-    const passwordInput = spectator.query('admin') as HTMLInputElement;
+    const passwordInput = spectator.query('password123') as HTMLInputElement;
     const submitButton = spectator.query('button[type="submit"]') as HTMLButtonElement;
 
     spectator.typeInElement('invalidEmail', emailInput);
@@ -71,7 +71,7 @@ describe('LoginComponent', () => {
   it('should enable the submit button if the form is valid', () => {
 
     const emailInput = spectator.query(byPlaceholder('Dr.med.Rasen@gmx.de')) as HTMLInputElement;
-    const passwordInput = spectator.query(byPlaceholder('password123')) as HTMLInputElement;
+    const passwordInput = spectator.query(byPlaceholder('Password123')) as HTMLInputElement;
     const submitButton = spectator.query('button[type="submit"]') as HTMLButtonElement;
 
     spectator.typeInElement('valid.email@example.com', emailInput);
