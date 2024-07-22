@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Question} from "../entity/Question";
+import {EnumValue} from "@angular/compiler-cli/src/ngtsc/partial_evaluator";
+import {CategoryEnum} from "../entity/Category.enum";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiQuizRoundService {
-  private questionsURL: string = "https://opentdb.com/api.php?amount=3&difficulty=medium&type=multiple"
+
+  private questionsURL: string = "https://opentdb.com/api.php?amount=3&category=&" + CategoryEnum + "difficulty=medium&type=multiple"
 
   constructor(private httpClient: HttpClient) {
   }

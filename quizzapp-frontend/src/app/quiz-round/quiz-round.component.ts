@@ -77,6 +77,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
     this.isVisible = true;
 
     if (answer === this.currentQuestion?.correct_answer) {
+      this.currentQuestion.answerIsRight = true;
       alert("Your answer is correct!");
     } else {
       alert("Unfortunately your answer is false!");
@@ -87,6 +88,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   nextQuestion(index: number) {
     this.currentQuestion = this.questions[index + 1]
     this.isVisible = false;
+    this.currentQuestion.answerIsRight = false;
 
     this.startTimer(30)
     this.shuffleAnswers(this.currentQuestion)
