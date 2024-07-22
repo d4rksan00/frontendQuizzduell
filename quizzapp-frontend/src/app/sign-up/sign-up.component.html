@@ -1,0 +1,22 @@
+<div class="page-container">
+  <img src="assets/images/quizzAppLogo.jpeg" />
+  <h2>Sign Up</h2>
+  <form [formGroup]="playerForm">
+    <mat-form-field>
+      <mat-label>E-Mail</mat-label>
+        <input (keydown.enter)="createAccClicked()" formControlName="email" matInput placeholder="Dr.med.Rasen@gmx.de">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+        <input (keydown.enter)="createAccClicked()" formControlName="password" matInput placeholder="Password123">
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" class="btn-createAcc" (click)="cancelClicked()">Cancel</button>
+    <button mat-flat-button color="primary" class="btn-createAcc" [disabled]="!playerForm.valid">Create Account</button>
+  </form>
+
+  <div class="errormessage-container" *ngIf="showErrorMessage">
+    <p class="errormessage">The given credentials dont match, please try again!</p>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="header">
+    <h1>Open Games Overview</h1>
+    <p>Here you can find a list of all open games.</p>
+  </div>
+  <div class="listOfOpenGames">
+    <mat-action-list>
+      <mat-list-item *ngFor="let game of paginatedGames">
+        <span class="game-name">{{ game.name }}</span>
+        <button mat-button class="open-button" (click)="open(game)">Open</button>
+      </mat-list-item>
+    </mat-action-list>
+    <mat-paginator [length]="games.length"
+                   [pageSize]="pageSize"
+                   [pageSizeOptions]="pageSizeOptions"
+                   (page)="handlePageEvent($event)">
+    </mat-paginator>
+  </div>
+</div>

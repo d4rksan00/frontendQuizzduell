@@ -8,12 +8,8 @@ import { ApiPlayerService } from './api-player.service';
 })
 export class PlayerService {
 
-  constructor(private apiPlayerService: ApiPlayerService) { 
+  constructor(private apiPlayerService: ApiPlayerService) {
 
-  }
-
-  public createPlayer(email: String, password: String): Observable<Player> {
-    return this.apiPlayerService.createPlayer(new Player(null, email, password, false, 0, 0, 0, 0,));
   }
 
 

@@ -1,0 +1,26 @@
+.main-container{
+    margin: 5px;
+}
+
+.category-container{
+    width: 200px;
+    font-size: 15px;
+    display: inline-block;
+    text-align: center;
+}
+
+.player-one-container{
+    display: inline-block;
+}
+
+.player-two-container{
+    display: inline-block;
+}
+
+.correct{
+    background-color: green;
+}
+
+.incorrect{
+    background-color: #ff0000;
+}

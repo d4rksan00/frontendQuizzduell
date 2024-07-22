@@ -102,6 +102,99 @@
           }
         }
       }
+    },
+    "open-games": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/open-games",
+      "sourceRoot": "projects/open-games/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/open-games",
+            "index": "projects/open-games/src/index.html",
+            "browser": "projects/open-games/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/open-games/tsconfig.app.json",
+            "assets": [
+              "projects/open-games/src/favicon.ico",
+              "projects/open-games/src/assets"
+            ],
+            "styles": [
+              "projects/open-games/src/styles.css"
+            ],
+            "scripts": [],
+            "server": "projects/open-games/src/main.server.ts",
+            "prerender": true,
+            "ssr": {
+              "entry": "projects/open-games/server.ts"
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "buildTarget": "open-games:build:production"
+            },
+            "development": {
+              "buildTarget": "open-games:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "buildTarget": "open-games:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/open-games/tsconfig.spec.json",
+            "assets": [
+              "projects/open-games/src/favicon.ico",
+              "projects/open-games/src/assets"
+            ],
+            "styles": [
+              "projects/open-games/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "cli": {
