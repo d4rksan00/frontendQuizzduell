@@ -1,10 +1,12 @@
 <!-- Question posed as header -->
 <header class="header">
-  <h1>{{ htmlDecode(questions[0]?.question!) }}</h1>
+  <h1 *ngIf="isFirst">{{ htmlDecode(questions[0]?.question!) }}</h1>
+  <h1 *ngIf="isSecond">{{ htmlDecode(questions[1]?.question!) }}</h1>
+  <h1 *ngIf="isThird">{{ htmlDecode(questions[2]?.question!) }}</h1>
 </header>
 
 <!-- Stepper starting 3 questions -->
-<mat-horizontal-stepper [linear]="true" #stepper>
+<mat-horizontal-stepper [linear]="true">
 
   <!-- First Question -->
   <mat-step>
@@ -12,7 +14,7 @@
     <ng-template matStepContent>
       <div class="grid">
         <mat-grid-list cols="2" rowHeight="2:1">
-          <mat-grid-tile *ngFor="let a of shuffledAnswers">
+          <mat-grid-tile *ngFor="let a of shuffledAnswersOne">
             <div class="answerbox"
                  (click)="clicked(a)"
                  [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
@@ -27,7 +29,7 @@
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons"> <!--*ngIf="isVisible"-->
         <button mat-button matStepperPrevious>Abort round</button>
-        <button mat-button matStepperNext>Next question</button>
+        <button mat-button matStepperNext (click)="startTimer(30); setQuestionFlag(isFirst); setQuestionFlag(isSecond)">Next question</button>
       </div>
     </ng-template>
   </mat-step>
@@ -38,11 +40,11 @@
     <ng-template matStepContent>
       <div class="grid">
         <mat-grid-list cols="2" rowHeight="2:1">
-          <mat-grid-tile *ngFor="let a of shuffledAnswers">
+          <mat-grid-tile *ngFor="let a of shuffledAnswersTwo">
             <div class="answerbox"
                  (click)="clicked(a)"
-                 [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
-                  'incorrect' : answered && a !== questions[0]?.correct_answer}">
+                 [ngClass]="{'correct' : answered && a === questions[1]?.correct_answer,
+                  'incorrect' : answered && a !== questions[1]?.correct_answer}">
               {{ htmlDecode(a) }}
             </div>
           </mat-grid-tile>
@@ -53,7 +55,7 @@
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons"> <!--*ngIf="isVisible"-->
         <button mat-button matStepperPrevious>Abort round</button>
-        <button mat-button matStepperNext (click)="startTimer(30)">Next question</button>
+        <button mat-button matStepperNext (click)="startTimer(30); setQuestionFlag(isSecond); setQuestionFlag(isThird)">Next question</button>
       </div>
     </ng-template>
   </mat-step>
@@ -64,11 +66,11 @@
     <ng-template matStepContent>
       <div class="grid">
         <mat-grid-list cols="2" rowHeight="2:1">
-          <mat-grid-tile *ngFor="let a of shuffledAnswers">
+          <mat-grid-tile *ngFor="let a of shuffledAnswersThree">
             <div class="answerbox"
                  (click)="clicked(a)"
-                 [ngClass]="{'correct' : answered && a === questions[0]?.correct_answer,
-                  'incorrect' : answered && a !== questions[0]?.correct_answer}">
+                 [ngClass]="{'correct' : answered && a === questions[2]?.correct_answer,
+                  'incorrect' : answered && a !== questions[2]?.correct_answer}">
               {{ htmlDecode(a) }}
             </div>
           </mat-grid-tile>
