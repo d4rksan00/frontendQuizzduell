@@ -7,8 +7,9 @@ import {CategoryEnum} from "../entity/Category.enum";
   providedIn: 'root'
 })
 export class ApiQuizRoundService {
+  private chosenCategory = CategoryEnum.Art;
 
-  private questionsURL: string = "https://opentdb.com/api.php?amount=3&category=&" + CategoryEnum + "difficulty=medium&type=multiple"
+  private questionsURL: string = "https://opentdb.com/api.php?amount=3&category=" + this.chosenCategory + "&difficulty=medium&type=multiple"
 
   constructor(private httpClient: HttpClient) {
   }

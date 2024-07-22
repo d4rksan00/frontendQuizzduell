@@ -2,16 +2,15 @@
   @if (quiz$ | async; as quiz) {
     <h1>Quizz-game overview</h1>
     <div class="player-point-container">
-        <div class="player-container">
-            <h2>Player 1</h2>
-            <p>Points: {{quiz.player1Points}}</p>
-        </div>
-        <div class="player-container">
-            <h2>Player 2</h2>
-            <p>Points: {{quiz.player2Points}}</p>
-        </div>
+      <div class="player-container">
+        <h2>Player 1</h2>
+        <p>Points: {{ quiz.player1Points }}</p>
+      </div>
+      <div class="player-container">
+        <h2>Player 2</h2>
+        <p>Points: {{ quiz.player2Points }}</p>
+      </div>
     </div>
-
 
 
     <app-single-round *ngFor="let r of [].constructor(6); let i = index" [categoryNumber]="i" [quiz]="quiz">
@@ -19,8 +18,17 @@
     </app-single-round>
 
     <div class="button-container">
-        <button style="color:green" (click)="winClick()">WIN a game</button>
-        <button style="color: red"(click)="loseClick()">lose a game</button>
+      <button style="color:green" (click)="winClick()">WIN a game</button>
+      <button style="color: red" (click)="loseClick()">lose a game</button>
+    </div>
+
+    <div>
+      <select>
+        <option *ngFor="let category of FileType2LabelMapping | keyvalue"
+                [value]="category.key">
+          {{ category.value}}
+        </option>
+      </select>
     </div>
   }
 

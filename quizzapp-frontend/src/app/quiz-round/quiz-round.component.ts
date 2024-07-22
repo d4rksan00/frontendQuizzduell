@@ -21,7 +21,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
 
   // Timer variables
   progressbarValue = 100;
-  curSec: number = 0;
+  currentSec: number = 0;
 
   // "clicked" variables
   answered: boolean = false;
@@ -59,14 +59,14 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
 
     const sub = timer$.subscribe((sec) => {
       this.progressbarValue = 100 - sec * 100 / time;
-      this.curSec = sec;
+      this.currentSec = sec;
 
-      if (this.curSec === time || this.answered) {
+      if (this.currentSec === time || this.answered) {
         sub.unsubscribe();
       } if (this.progressbarValue === 0 && !this.answered) {
         alert("Time has run out!")
         sub.unsubscribe();
-        this.isVisible = true;
+        this.clicked("");
       }
     });
   }
