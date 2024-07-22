@@ -27,7 +27,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SignUpComponent} from "./sign-up/sign-up.component";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
-
+import {SingleRoundComponent} from './single-round/single-round.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {HttpClientModule} from '@angular/common/http';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   declarations: [
@@ -38,39 +41,45 @@ import {MatSelect} from "@angular/material/select";
     PageDoesNotExistComponent,
     QuizRoundComponent,
     OpenGamesComponent,
-    SignUpComponent
+    SignUpComponent,
+    SingleRoundComponent,
+    QuestionComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        MatSlideToggleModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        MatIconModule,
-        MatDividerModule,
-        MatButtonModule,
-        MatToolbarModule,
-        MatToolbar,
-        MatProgressBarModule,
-        MatProgressBarModule,
-        MatToolbar,
-        MatActionList,
-        MatListItem,
-        MatPaginatorModule,
-        BrowserAnimationsModule,
-        MatProgressBarModule,
-        MatGridList,
-        MatGridTile,
-        MatStepperModule,
-        MatOption,
-        MatSelect,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatSlideToggleModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatToolbar,
+    MatProgressBarModule,
+    MatProgressBarModule,
+    MatToolbar,
+    MatActionList,
+    MatListItem,
+    MatPaginatorModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatGridList,
+    MatGridTile,
+    MatStepperModule,
+    MatOption,
+    MatSelect,
+    ReactiveFormsModule,
+    MatGridListModule,
+    HttpClientModule
+  ],
   providers: [
     provideAnimationsAsync()
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule {
 }
