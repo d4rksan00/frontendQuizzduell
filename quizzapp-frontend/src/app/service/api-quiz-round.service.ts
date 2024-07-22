@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Question} from "../entity/Question";
-import {EnumValue} from "@angular/compiler-cli/src/ngtsc/partial_evaluator";
 import {CategoryEnum} from "../entity/Category.enum";
 
 @Injectable({
