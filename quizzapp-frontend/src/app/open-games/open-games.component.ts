@@ -23,6 +23,7 @@ export class OpenGamesComponent implements OnInit {
       this.games.push({ name: `Game ${i}` });
     }
     this.updatePaginatedGames();
+
   }
 
   open(game: Game) {

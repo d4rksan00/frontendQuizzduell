@@ -12,6 +12,12 @@ export class ApiPlayerService {
   constructor(private httpClient: HttpClient) { }
 
   createPlayer(player: Player): Observable<Player> {
-    return this.httpClient.post<Player>('http://localhost:8181/quiz', player);
+    return this.httpClient.post<Player>('http://localhost:8181/player', player);
   }
+
+  getPlayerByCredentials(player: Player): Observable<Player> {
+    return this.httpClient.post<Player>(`http://localhost:8181/player/getByCredentials`, player);
+  }
+
+
 }
