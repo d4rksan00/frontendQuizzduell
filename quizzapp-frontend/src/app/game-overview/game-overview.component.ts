@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../service/quiz.service';
 import { Quiz } from '../entity/Quiz';
+import {CategoryEnum, FileType2LabelMapping} from "../entity/Category.enum";
 
 export interface Tile {
   color: string;
@@ -23,12 +24,17 @@ export class GameOverviewComponent implements OnInit{
   isRight: boolean | undefined;
   isWrong: boolean | undefined;
 
+  // Enum mapping
+  protected readonly CategoryEnum = CategoryEnum;
+  public FileType2LabelMapping = FileType2LabelMapping
+
 
   constructor(private quizService: QuizService){
 
   }
 
   ngOnInit(): void {
+    Object.values(this.FileType2LabelMapping)
     this.getQuizData();
     this.buildpage();
   }
