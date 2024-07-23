@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Quiz } from '../entity/Quiz';
+import {CategoryEnum} from "../entity/Category.enum";
 
 @Component({
   selector: 'app-single-round',
