@@ -8,15 +8,20 @@ import { Player } from '../entity/Player';
 })
 export class ApiPlayerService {
  
+  playerUrl: string = 'http://localhost:8181/player';
 
   constructor(private httpClient: HttpClient) { }
 
   createPlayer(player: Player): Observable<Player> {
-    return this.httpClient.post<Player>('http://localhost:8181/player', player);
+    return this.httpClient.post<Player>(`${this.playerUrl}/create`, player);
   }
 
   getPlayerByCredentials(player: Player): Observable<Player> {
-    return this.httpClient.post<Player>(`http://localhost:8181/player/getByCredentials`, player);
+    return this.httpClient.post<Player>(`${this.playerUrl}/getByCredentials`, player);
+  }
+
+  getOpenGames(player:Player): Observable<Player> {
+    return this.httpClient.post<Player>(`${this.playerUrl}/getOpenGames`, player);
   }
 
 
