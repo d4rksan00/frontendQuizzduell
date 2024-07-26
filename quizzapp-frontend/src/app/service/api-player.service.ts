@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Player } from '../entity/Player';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiPlayerService {
- 
+
   playerUrl: string = 'http://localhost:8181/player';
 
   constructor(private httpClient: HttpClient) { }
@@ -23,4 +24,10 @@ export class ApiPlayerService {
   getOpenQuizzes(player:Player): Observable<Player> {
     return this.httpClient.post<Player>(`${this.playerUrl}/getOpenGames`, player);
   }
+
+  register(email: string, password: string): Observable<Player> {
+    const player = { email, password };
+    return this.httpClient.post<Player>(`${this.playerUrl}/create`, player);
+  }
+
 }
