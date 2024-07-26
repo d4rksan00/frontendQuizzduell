@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { Quiz } from '../entity/Quiz';
-import {CategoryEnum} from "../entity/Category.enum";
+import {Component, Input, OnInit} from '@angular/core';
+import {Quiz} from '../entity/Quiz';
+import {CategoryEnum, FileType2LabelMapping} from "../entity/Category.enum";
 
 @Component({
   selector: 'app-single-round',
@@ -10,12 +10,22 @@ import {CategoryEnum} from "../entity/Category.enum";
 export class SingleRoundComponent {
 
   @Input() quiz!: Quiz
-  @Input() categoryNumber!: number
+  @Input() round!: number
+  public currentRound: any = this.quiz?.quizRounds[this.round].category
 
   getAnswerStatus(index: number): string {
-    if (typeof this.quiz.quizRound[this.categoryNumber] === 'undefined' || typeof this.quiz.quizRound[this.categoryNumber].question[index] === 'undefined') {
+    if (typeof this.quiz?.quizRounds[this.round] === 'undefined' || typeof this.quiz?.quizRounds[this.round].question[index] === 'undefined') {
       return '';
     }
-    return this.quiz.quizRound[this.categoryNumber].question[index].answerIsRight? 'correct': 'incorrect';
+    return this.quiz.quizRounds[this.round].question[index].answerIsRight ? 'correct' : 'incorrect';
   }
+
+  submitCategory():string {
+    return this.currentRound
+  }
+
+  // const FileType2LabelMapping = FileType2LabelMapping;
+  protected readonly FileType2LabelMapping = FileType2LabelMapping;
+  protected readonly CategoryEnum = CategoryEnum;
+
 }

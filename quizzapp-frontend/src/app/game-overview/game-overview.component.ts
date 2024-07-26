@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../service/quiz.service';
 import { Quiz } from '../entity/Quiz';
 import {CategoryEnum, FileType2LabelMapping} from "../entity/Category.enum";
-import {EMPTY, Observable, of} from "rxjs";
 
 export interface Tile {
   color: string;
@@ -19,7 +18,7 @@ export interface Tile {
 
 export class GameOverviewComponent implements OnInit{
 
-  quiz$ = this.quizService.getQuizzes();
+  quiz?: Quiz;
 
 
   // quiz!: Quiz;
@@ -43,9 +42,9 @@ export class GameOverviewComponent implements OnInit{
     // this.quiz?.player1Points
   }
 
-
   getQuizData(): void{
     // this.quizService.getQuizzes().subscribe(data => this.quiz= data);
+    this.quizService.getDummyQuiz().subscribe(data => this.quiz = data)
   }
 
   winClick() {

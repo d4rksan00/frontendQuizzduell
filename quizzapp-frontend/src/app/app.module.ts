@@ -31,6 +31,7 @@ import {SingleRoundComponent} from './single-round/single-round.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {HttpClientModule} from '@angular/common/http';
 import { QuestionComponent } from './question/question.component';
+import { ForwardEnumKeysPipe } from './forward-enum-keys.pipe';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { QuestionComponent } from './question/question.component';
     OpenGamesComponent,
     SignUpComponent,
     SingleRoundComponent,
-    QuestionComponent
+    QuestionComponent,
+    ForwardEnumKeysPipe
   ],
   imports: [
     BrowserModule,

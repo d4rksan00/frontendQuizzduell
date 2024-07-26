@@ -14,4 +14,8 @@ export class QuizService {
    getQuizzes(): Observable<Quiz> {
      return of();
    }
+
+   getDummyQuiz(): Observable<Quiz> {
+    return this.http.get<Quiz>("http://localhost:8181/quiz/1")
+   }
 }

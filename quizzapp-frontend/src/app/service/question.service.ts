@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ApiQuizRoundService} from "./api-quiz-round.service";
+import {ApiQuizService} from "./api-quiz.service";
 import {Observable} from "rxjs";
 import {Question} from "../entity/Question";
 
@@ -8,10 +8,11 @@ import {Question} from "../entity/Question";
 })
 export class QuestionService {
 
-  constructor(private apiQuizRoundService: ApiQuizRoundService) {
+  constructor(private apiQuizService: ApiQuizService) {
   }
 
   public getQuestions(): Observable<any> {
-    return this.apiQuizRoundService.getQuestions()
+    return this.apiQuizService.getQuestions()
   }
+
 }

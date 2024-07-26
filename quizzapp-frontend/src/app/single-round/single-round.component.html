@@ -1,19 +1,30 @@
 <div class="main-container">
-    <div class="player-one-container">
-        <button mat-fab extended class="{{getAnswerStatus(0)}}">
-        </button>
-        <button mat-fab extended class="{{getAnswerStatus(1)}}">
-        </button>
-        <button mat-fab extended class="{{getAnswerStatus(2)}}">
-        </button>
-    </div>
-    <div class="category-container">Category {{categoryNumber}}</div>
-    <div class="player-two-container">
-        <button mat-fab extended class="{{getAnswerStatus(3)}}">
-        </button>
-        <button mat-fab extended class="{{getAnswerStatus(4)}}">
-        </button>
-        <button mat-fab extended class="{{getAnswerStatus(5)}}">
-        </button>
-    </div>
+  <div class="player-one-container">
+    <button mat-fab extended class="{{getAnswerStatus(0)}}">
+    </button>
+    <button mat-fab extended class="{{getAnswerStatus(1)}}">
+    </button>
+    <button mat-fab extended class="{{getAnswerStatus(2)}}">
+    </button>
+  </div>
+  <div class="category-container">
+    <select>
+      <option *ngFor="let category of CategoryEnum | forwardEnumKeys"
+              [value]="category.value"
+              [selected]="this.quiz.quizRounds[this.round]?.category === category.key">
+        {{category.key}}
+      </option>
+    </select>
+  </div>
+  <div class="player-two-container">
+    <button mat-fab extended class="{{getAnswerStatus(3)}}">
+    </button>
+    <button mat-fab extended class="{{getAnswerStatus(4)}}">
+    </button>
+    <button mat-fab extended class="{{getAnswerStatus(5)}}">
+    </button>
+  </div>
+  <div>
+    <button class="startRound" (click)="submitCategory()">Start Round</button>
+  </div>
 </div>

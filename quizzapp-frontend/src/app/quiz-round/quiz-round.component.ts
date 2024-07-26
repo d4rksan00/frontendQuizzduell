@@ -26,6 +26,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   // "clicked" variables
   answered: boolean = false;
   isVisible: boolean = false;
+  points: number = 0;
 
   // constructor
   constructor(questionService: QuestionService) {
@@ -78,6 +79,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
 
     if (answer === this.currentQuestion?.correct_answer) {
       this.currentQuestion.answerIsRight = true;
+      this.points +=1
       alert("Your answer is correct!");
     } else {
       alert("Unfortunately your answer is false!");
