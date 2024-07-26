@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ApiQuizRoundService} from "./api-quiz-round.service";
+import {ApiQuizRoundService} from "./api-question.service";
 import {Observable} from "rxjs";
 import {Question} from "../entity/Question";
 

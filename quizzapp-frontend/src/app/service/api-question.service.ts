@@ -17,4 +17,7 @@ export class ApiQuizRoundService {
   public getQuestions(): Observable<any> {
     return this.httpClient.get(this.questionsURL)
   }
+
+  
+
 }

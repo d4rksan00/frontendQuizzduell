@@ -5,9 +5,9 @@
   </div>
   <div class="listOfOpenGames">
     <mat-action-list>
-      <mat-list-item *ngFor="let game of paginatedGames">
-        <span class="game-name">{{ game.name }}</span>
-        <button mat-button class="open-button" (click)="open(game)">Open</button>
+      <mat-list-item *ngFor="let quiz of paginatedQuizzes">
+        <span class="game-name">{{ quiz.quizId }}</span>
+        <button mat-button class="open-button" (click)="open(quiz)">Open</button>
       </mat-list-item>
     </mat-action-list>
     <mat-paginator [length]="games.length"

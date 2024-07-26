@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Quiz } from '../entity/Quiz';
+import { ApiQuizService } from './api-quiz.service';
+import { Player } from '../entity/Player';
 
 @Injectable({
   providedIn: 'root'
@@ -179,12 +181,20 @@ export class QuizService {
       "password": "helloworld2"
     },
     "player1Points" : 5,
-    "player2Points" : 25
+    "player2Points" : 25,
+    "isFinished" : false
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+    private apiQuizService: ApiQuizService
+  ) { }
 
   getQuizzes(): Observable<Quiz> {
     return of(this.data);
   }
+
+  getQuizzesByEmail(player: Player): Observable<Quiz[]>{
+    return this.apiQuizService.getOpenQuizzes(player)
+  }
+
 }

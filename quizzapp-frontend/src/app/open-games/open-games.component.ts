@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { Player } from '../entity/Player';
+import { DataSharingService } from '../service/data-sharing.service';
+import { ApiPlayerService } from '../service/api-player.service';
+import { Quiz } from '../entity/Quiz';
+import { ApiQuizService } from '../service/api-quiz.service';
 
 interface Game {
   name: string;
@@ -12,33 +17,56 @@ interface Game {
 })
 export class OpenGamesComponent implements OnInit {
   games: Game[] = [];
-  paginatedGames: Game[] = [];
+  paginatedQuizzes: Quiz[] = [];
   pageSize = 10;
   pageSizeOptions: number[] = [10, 20, 50, 100];
   currentPage = 0;
+  currentPlayer!: Player;
+  //Todo: openGamesModel anfertigen
+  openGames: Quiz[] = [];
 
-  ngOnInit() {
-    // Erstelle 100 Dummy-Spiele
-    for (let i = 1; i <= 100; i++) {
-      this.games.push({ name: `Game ${i}` });
-    }
-    this.updatePaginatedGames();
+  constructor(
+    private dataSharingService: DataSharingService,
+    private apiQuizService: ApiQuizService,
+  ){
 
   }
 
-  open(game: Game) {
-    console.log('Opening', game.name);
+
+  ngOnInit() {
+    // Erstelle 100 Dummy-Spiele
+    this.currentPlayer = this.dataSharingService.activePlayer.value;
+    this.apiQuizService.getOpenQuizzes(this.currentPlayer).subscribe(
+      (data) => {
+        this.openGames = data;
+       
+        
+        this.updatePaginatedQuizzes();
+      }
+      
+  );
+
+
+    // for (let i = 1; i <= 100; i++) {
+    //   this.games.push({ name: `Game ${i}` });
+    // }
+    // this.updatePaginatedGames();
+
+  }
+
+  open(quiz: Quiz) {
+    console.log('Opening: ', quiz.quizId);
   }
 
   handlePageEvent(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.currentPage = event.pageIndex;
-    this.updatePaginatedGames();
+    this.updatePaginatedQuizzes();
   }
 
-  updatePaginatedGames() {
+  updatePaginatedQuizzes() {
     const startIndex = this.currentPage * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.paginatedGames = this.games.slice(startIndex, endIndex);
+    this.paginatedQuizzes = this.openGames.slice(startIndex, endIndex);
   }
 }

@@ -2,7 +2,7 @@
 .container {
   display: flex;
   flex-direction: column; /* Anordnung der Elemente in einer Spalte */
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 100vh;
   background-color: #f0f0f0;
@@ -11,6 +11,7 @@
 /* Header-Stile */
 .header {
   text-align: center;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
