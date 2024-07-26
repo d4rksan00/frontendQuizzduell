@@ -11,8 +11,8 @@ export class QuestionService {
   constructor(private apiQuizService: ApiQuizService) {
   }
 
-  public getQuestions(): Observable<any> {
-    return this.apiQuizService.getQuestions()
+  public getQuestionsByCategory(category:string): Observable<any> {
+    return this.apiQuizService.getQuestions(category)
   }
 
 }

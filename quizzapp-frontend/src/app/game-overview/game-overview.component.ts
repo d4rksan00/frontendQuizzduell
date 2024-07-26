@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { QuizService } from '../service/quiz.service';
-import { Quiz } from '../entity/Quiz';
-import {CategoryEnum, FileType2LabelMapping} from "../entity/Category.enum";
+import {Component, OnInit} from '@angular/core';
+import {QuizService} from '../service/quiz.service';
+import {Quiz} from '../entity/Quiz';
+import {QuestionService} from "../service/question.service";
+import {DataSharingService} from "../service/data-sharing.service";
+import {Router} from "@angular/router";
+
 
 export interface Tile {
   color: string;
@@ -16,33 +19,30 @@ export interface Tile {
   styleUrl: './game-overview.component.css'
 })
 
-export class GameOverviewComponent implements OnInit{
+export class GameOverviewComponent implements OnInit {
 
   quiz?: Quiz;
-
 
   // quiz!: Quiz;
   isRight: boolean | undefined;
   isWrong: boolean | undefined;
 
-  // Enum mapping
-  protected readonly CategoryEnum = CategoryEnum;
-  public FileType2LabelMapping = FileType2LabelMapping
+  emittedId! : string;
 
-  constructor(private quizService: QuizService){
 
+  constructor(private quizService: QuizService, private dataSharingService: DataSharingService, private router : Router, private questionService: QuestionService ) {
   }
 
   ngOnInit(): void {
-    Object.values(this.FileType2LabelMapping)
     this.getQuizData();
     this.buildpage();
   }
+
   buildpage() {
     // this.quiz?.player1Points
   }
 
-  getQuizData(): void{
+  getQuizData(): void {
     // this.quizService.getQuizzes().subscribe(data => this.quiz= data);
     this.quizService.getDummyQuiz().subscribe(data => this.quiz = data)
   }
@@ -51,7 +51,19 @@ export class GameOverviewComponent implements OnInit{
     this.isRight = true;
   }
 
-  loseClick(){
+  loseClick() {
     this.isWrong = true;
   }
+
+  onCategoryChanged($event: any) {
+    alert("parent: " + $event)
+    this.emittedId = $event
+  }
+
+  gameStart() {
+    this.dataSharingService.changeCurrentCategoryId(this.emittedId)
+    this.router.navigate(['homepage', 'quizround']);
+  }
+
+  protected readonly alert = alert;
 }

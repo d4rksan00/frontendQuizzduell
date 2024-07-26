@@ -8,11 +8,11 @@
     </button>
   </div>
   <div class="category-container">
-    <select>
-      <option *ngFor="let category of CategoryEnum | forwardEnumKeys"
-              [value]="category.value"
-              [selected]="this.quiz.quizRounds[this.round]?.category === category.key">
-        {{category.key}}
+    <select #categoryId (change)="submitCategory(categoryId.value)">
+      <option *ngFor="let category of categories"
+              [value]="category.id"
+              [selected]="this.quiz.quizRounds[this.round]?.category === category.shownName">
+        {{category.shownName}}
       </option>
     </select>
   </div>
@@ -24,7 +24,5 @@
     <button mat-fab extended class="{{getAnswerStatus(5)}}">
     </button>
   </div>
-  <div>
-    <button class="startRound" (click)="submitCategory()">Start Round</button>
-  </div>
+
 </div>

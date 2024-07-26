@@ -8,7 +8,6 @@ export class Quiz{
     playerTwo: Player;
 
 
-
     constructor(quizId: number, quizRound: QuizRound[], player1: Player, player2: Player){
         this.quizId= quizId;
         this.quizRounds = quizRound;

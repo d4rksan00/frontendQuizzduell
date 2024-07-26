@@ -3,6 +3,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {interval} from "rxjs";
 import {Question} from "../entity/Question";
 import {QuestionService} from "../service/question.service";
+import {DataSharingService} from "../service/data-sharing.service";
 
 @Component({
   selector: 'app-quiz-round',
@@ -29,13 +30,13 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   points: number = 0;
 
   // constructor
-  constructor(questionService: QuestionService) {
+  constructor(questionService: QuestionService, private dataSharingService: DataSharingService) {
     this.questionService = questionService;
   }
 
   // Get questions from requested category
-  public getQuestions() {
-    return this.questionService.getQuestions().subscribe((response) => {
+  public getQuestions(category:string) {
+    return this.questionService.getQuestionsByCategory(category).subscribe((response) => {
       this.questions = response.results;
       this.currentQuestion = this.questions[0]
 
@@ -78,7 +79,6 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
     this.isVisible = true;
 
     if (answer === this.currentQuestion?.correct_answer) {
-      this.currentQuestion.answerIsRight = true;
       this.points +=1
       alert("Your answer is correct!");
     } else {
@@ -104,7 +104,8 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   }
 
   ngOnInit() {
+    this.getQuestions(this.dataSharingService.categoryId.value)
     this.startTimer(30)
-    this.getQuestions()
+    // ^-- API call to get questions
   }
 }

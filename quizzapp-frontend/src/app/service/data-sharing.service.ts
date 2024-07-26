@@ -10,12 +10,18 @@ export class DataSharingService {
 
   activePlayer = new BehaviorSubject<Player>(new Player('', '',0));
   currentActivePlayer = this.activePlayer.asObservable();
+  categoryId : BehaviorSubject<string> = new BehaviorSubject<string>("");
+  currentCategoryId = this.categoryId.asObservable();
 
   constructor(private http: HttpClient) {
   }
 
   changeActivePlayer(player: Player) {
     this.activePlayer.next(player);
+  }
+
+  changeCurrentCategoryId(id : string) {
+    this.categoryId.next(id);
   }
 
   login(email: string, password: string): Observable<Player> {
