@@ -1,8 +1,7 @@
+import {Observable} from "rxjs";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 export class Player {
-
-
-
     constructor(
         //public id: Number,
         public email: string,
@@ -16,4 +15,6 @@ export class Player {
         // public openQuizzes: Quiz[],
     ) {
     }
+
+
 }

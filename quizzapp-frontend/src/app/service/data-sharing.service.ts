@@ -24,10 +24,4 @@ export class DataSharingService {
     this.http.get<Player>('http://localhost:8080/login', {headers: headers}).subscribe(player => this.activePlayer.next(player));
     return this.currentActivePlayer;
   }
-
-  register(email: string, password: string): Observable<Player> {
-    const player = new Player(email, password);
-    this.activePlayer.next(player);
-    return this.currentActivePlayer;
-  }
 }
