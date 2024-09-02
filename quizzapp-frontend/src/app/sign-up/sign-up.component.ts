@@ -24,7 +24,10 @@ export class SignUpComponent {
       validators: [Validators.required]
     })
   });
-  constructor(private router: Router, private dataSharingService: DataSharingService, private apiPlayerService: ApiPlayerService) {
+  constructor(
+    private router: Router, 
+    private dataSharingService: DataSharingService, 
+    private apiPlayerService: ApiPlayerService) {
   }
   async cancelClicked() {
     try {
@@ -44,12 +47,12 @@ export class SignUpComponent {
     const player = { email, password };
 
     const registeredUser = await firstValueFrom(this.apiPlayerService.register(email, password));
+    this.dataSharingService.changeActivePlayer(registeredUser);
 
     if (registeredUser) {
-      await this.router.navigate(['homepage', 'overview']);
+      await this.router.navigate(['homepage', 'opengames']);
     } else {
       this.showErrorMessage = true;
     }
-
   }
 }

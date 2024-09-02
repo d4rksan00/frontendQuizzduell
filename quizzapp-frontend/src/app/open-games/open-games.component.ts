@@ -24,6 +24,7 @@ export class OpenGamesComponent implements OnInit {
   currentPlayer!: Player;
   //Todo: openGamesModel anfertigen
   openGames: Quiz[] = [];
+  iSeeYouDontHaveFriends: Boolean = false;
 
   constructor(
     private dataSharingService: DataSharingService,
@@ -39,9 +40,9 @@ export class OpenGamesComponent implements OnInit {
     this.apiQuizService.getOpenQuizzes(this.currentPlayer).subscribe(
       (data) => {
         this.openGames = data;
-       
-        
         this.updatePaginatedQuizzes();
+        if(this.openGames.length == 0)
+          this.iSeeYouDontHaveFriends = true;
       }
       
   );
