@@ -118,5 +118,6 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
 
   finishRound() {
     this.points
+    this.router.navigate(['homepage', 'overview']);
   }
 }
