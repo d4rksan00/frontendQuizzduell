@@ -26,7 +26,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   currentSec: number = 0;
 
   // "clicked" variables
-  answered: boolean = false;
+  isAnswered: boolean = false;
   isVisible: boolean = false;
   editable: boolean = false;
   points: number = 0;
@@ -56,7 +56,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
 
   // Timer bar
   startTimer(seconds: number) {
-    this.answered = false;
+    this.isAnswered = false;
 
     const time = seconds;
     const timer$ = interval(1000);
@@ -65,9 +65,9 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
       this.progressbarValue = 100 - sec * 100 / time;
       this.currentSec = sec;
 
-      if (this.currentSec === time || this.answered) {
+      if (this.currentSec === time || this.isAnswered) {
         sub.unsubscribe();
-      } if (this.progressbarValue === 0 && !this.answered) {
+      } if (this.progressbarValue === 0 && !this.isAnswered) {
         alert("Time has run out!")
         sub.unsubscribe();
         this.clicked("");
@@ -77,7 +77,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
 
   //"clicked" event
   clicked(answer: string) {
-    this.answered = true;
+    this.isAnswered = true;
     this.isVisible = true;
 
     if (answer === this.currentQuestion?.correct_answer) {
@@ -112,7 +112,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   }
 
   abortRound() {
-    this.answered = true;
+    this.isAnswered = true;
     this.router.navigate(['homepage', 'overview']);
   }
 
