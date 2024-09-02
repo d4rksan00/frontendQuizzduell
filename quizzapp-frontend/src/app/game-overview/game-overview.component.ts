@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../service/quiz.service';
 import { Quiz } from '../entity/Quiz';
 import {CategoryEnum, FileType2LabelMapping} from "../entity/Category.enum";
+import { ApiQuizService } from '../service/api-quiz.service';
 
 export interface Tile {
   color: string;
@@ -18,34 +19,41 @@ export interface Tile {
 
 export class GameOverviewComponent implements OnInit{
 
-  quiz$ = this.quizService.getQuizzes();
+  //Mockdaten
+  //quiz$ = this.quizService.getQuizzes();
 
   // quiz!: Quiz;
   isRight: boolean | undefined;
   isWrong: boolean | undefined;
+
+  //Backenddaten
+  quiz!: Quiz;
 
   // Enum mapping
   protected readonly CategoryEnum = CategoryEnum;
   public FileType2LabelMapping = FileType2LabelMapping
 
 
-  constructor(private quizService: QuizService){
+  constructor(private quizService: QuizService,
+    private quizApiService: ApiQuizService
+  ){
 
   }
 
   ngOnInit(): void {
+    this.buildpage(parseInt(sessionStorage.getItem('gameToOpen')!));
     Object.values(this.FileType2LabelMapping)
-    this.getQuizData();
-    this.buildpage();
   }
-  buildpage() {
-    // this.quiz?.player1Points
+  
+  buildpage(quizId: number) {
+    this.quizApiService.getQuizById(quizId).subscribe((data) => {
+      this.quiz = data
+      console.log('********getQuizById*******');
+      console.log(this.quiz);
+    });
+    // console.log(this.quiz);
   }
 
-
-  getQuizData(): void{
-    // this.quizService.getQuizzes().subscribe(data => this.quiz= data);
-  }
 
   winClick() {
     this.isRight = true;

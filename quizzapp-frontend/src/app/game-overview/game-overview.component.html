@@ -1,14 +1,16 @@
 <div class="main-container">
-  @if (quiz$ | async; as quiz) {
+  <!-- @if (quiz$ | async; as quiz)  -->
+  @if (quiz) 
+  {
     <h1>Quizz-game overview</h1>
     <div class="player-point-container">
       <div class="player-container">
-        <h2>Player 1</h2>
-        <p>Points: {{ quiz.player1Points }}</p>
+        <h2>{{quiz.playerOne.email}}</h2>
+        <p>Points: {{ quiz.playerOnePoints }}</p>
       </div>
       <div class="player-container">
-        <h2>Player 2</h2>
-        <p>Points: {{ quiz.player2Points }}</p>
+        <h2>{{quiz.playerTwo.email}}</h2>
+        <p>Points: {{ quiz.playerTwoPoints }}</p>
       </div>
     </div>
 

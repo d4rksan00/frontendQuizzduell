@@ -17,4 +17,8 @@ export class ApiQuizService {
     return this.http.post<Quiz[]>(`${this.URL}/getOpenGames`, player);
   }
 
+  public getQuizById(quizId: number) : Observable<Quiz>{
+    return this.http.get<Quiz>(`${this.URL}/${quizId}`);
+  }
+
 }

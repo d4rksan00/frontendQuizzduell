@@ -61,8 +61,9 @@ export class LoginComponent {
         this.player.email = data.email;
         this.player.password = data.password;
         console.log("Email: " + this.player.email + " Password: " + this.player.password);
-        this.router.navigate(['homepage', 'opengames']);
         this.dataSharingService.changeActivePlayer(new Player(email, password));
+        sessionStorage.setItem('user', JSON.stringify(new Player(email, password)))
+        this.router.navigate(['homepage', 'opengames']);
       }
     });
   }

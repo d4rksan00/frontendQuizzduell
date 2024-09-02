@@ -189,9 +189,9 @@ export class QuizService {
     private apiQuizService: ApiQuizService
   ) { }
 
-  getQuizzes(): Observable<Quiz> {
-    return of(this.data);
-  }
+  // getQuizzes(): Observable<Quiz> {
+  //   return of(this.data);
+  // }
 
   getQuizzesByEmail(player: Player): Observable<Quiz[]>{
     return this.apiQuizService.getOpenQuizzes(player)
