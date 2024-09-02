@@ -4,6 +4,7 @@ import {interval} from "rxjs";
 import {Question} from "../entity/Question";
 import {QuestionService} from "../service/question.service";
 import {DataSharingService} from "../service/data-sharing.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-quiz-round',
@@ -30,7 +31,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   points: number = 0;
 
   // constructor
-  constructor(questionService: QuestionService, private dataSharingService: DataSharingService) {
+  constructor(questionService: QuestionService, private dataSharingService: DataSharingService, private router: Router) {
     this.questionService = questionService;
   }
 
@@ -107,5 +108,9 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
     this.getQuestions(this.dataSharingService.categoryId.value)
     this.startTimer(30)
     // ^-- API call to get questions
+  }
+
+  abortRound() {
+    this.router.navigate(['homepage', 'quizround']);
   }
 }
