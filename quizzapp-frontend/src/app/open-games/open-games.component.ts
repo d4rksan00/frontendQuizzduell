@@ -5,6 +5,8 @@ import { DataSharingService } from '../service/data-sharing.service';
 import { ApiPlayerService } from '../service/api-player.service';
 import { Quiz } from '../entity/Quiz';
 import { ApiQuizService } from '../service/api-quiz.service';
+import { Router } from '@angular/router';
+
 
 interface Game {
   name: string;
@@ -29,6 +31,7 @@ export class OpenGamesComponent implements OnInit {
   constructor(
     private dataSharingService: DataSharingService,
     private apiQuizService: ApiQuizService,
+    private router: Router
   ){
 
   }
@@ -36,7 +39,10 @@ export class OpenGamesComponent implements OnInit {
 
   ngOnInit() {
     // Erstelle 100 Dummy-Spiele
-    this.currentPlayer = this.dataSharingService.activePlayer.value;
+    //this.currentPlayer = this.dataSharingService.activePlayer.value;
+    var userString = sessionStorage.getItem('user');
+    this.currentPlayer = JSON.parse(userString!);
+    console.log(this.currentPlayer);
     this.apiQuizService.getOpenQuizzes(this.currentPlayer).subscribe(
       (data) => {
         this.openGames = data;
@@ -44,7 +50,6 @@ export class OpenGamesComponent implements OnInit {
         if(this.openGames.length == 0)
           this.iSeeYouDontHaveFriends = true;
       }
-      
   );
 
 
@@ -57,6 +62,9 @@ export class OpenGamesComponent implements OnInit {
 
   open(quiz: Quiz) {
     console.log('Opening: ', quiz.quizId);
+    sessionStorage.setItem('gameToOpen', quiz.quizId.toString());
+    this.router.navigate(['homepage', 'overview']);
+
   }
 
   handlePageEvent(event: PageEvent) {

@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class Player {
     constructor(
         //public id: Number,
+        // public name: string,
         public email: string,
         public password: string,
         // public activePlayer: Boolean,

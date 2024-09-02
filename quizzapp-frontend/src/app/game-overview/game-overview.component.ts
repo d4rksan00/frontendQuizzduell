@@ -1,10 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {QuizService} from '../service/quiz.service';
-import {Quiz} from '../entity/Quiz';
-import {QuestionService} from "../service/question.service";
-import {DataSharingService} from "../service/data-sharing.service";
-import {Router} from "@angular/router";
-
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../service/quiz.service';
+import { Quiz } from '../entity/Quiz';
+import {CategoryEnum, FileType2LabelMapping} from "../entity/Category.enum";
+import { ApiQuizService } from '../service/api-quiz.service';
 
 export interface Tile {
   color: string;
@@ -19,51 +17,49 @@ export interface Tile {
   styleUrl: './game-overview.component.css'
 })
 
-export class GameOverviewComponent implements OnInit {
+export class GameOverviewComponent implements OnInit{
 
-  quiz?: Quiz;
+  //Mockdaten
+  //quiz$ = this.quizService.getQuizzes();
 
   // quiz!: Quiz;
   isRight: boolean | undefined;
   isWrong: boolean | undefined;
 
-  emittedId! : string;
+  //Backenddaten
+  quiz!: Quiz;
+
+  // Enum mapping
+  protected readonly CategoryEnum = CategoryEnum;
+  public FileType2LabelMapping = FileType2LabelMapping
 
 
-  constructor(private quizService: QuizService, private dataSharingService: DataSharingService, private router : Router, private questionService: QuestionService ) {
+  constructor(private quizService: QuizService,
+    private quizApiService: ApiQuizService
+  ){
+
   }
 
   ngOnInit(): void {
-    this.getQuizData();
-    this.buildpage();
+    this.buildpage(parseInt(sessionStorage.getItem('gameToOpen')!));
+    Object.values(this.FileType2LabelMapping)
   }
 
-  buildpage() {
-    // this.quiz?.player1.points
+  buildpage(quizId: number) {
+    this.quizApiService.getQuizById(quizId).subscribe((data) => {
+      this.quiz = data
+      console.log('********getQuizById*******');
+      console.log(this.quiz);
+    });
+    // console.log(this.quiz);
   }
 
-  getQuizData(): void {
-    // this.quizService.getQuizzes().subscribe(data => this.quiz= data);
-    this.quizService.getDummyQuiz().subscribe(data => this.quiz = data)
-  }
 
   winClick() {
     this.isRight = true;
   }
 
-  loseClick() {
+  loseClick(){
     this.isWrong = true;
   }
-
-  onCategoryChanged($event: any) {
-    alert("parent: " + $event)
-    this.emittedId = $event
-  }
-
-  gameStart() {
-    this.dataSharingService.changeCurrentCategoryId(this.emittedId)
-    this.router.navigate(['homepage', 'quizround']);
-  }
-
-  protected readonly alert = alert;
 }

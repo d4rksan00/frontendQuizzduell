@@ -16,7 +16,7 @@ import { Player } from '../entity/Player';
 export class LoginComponent {
 
   showErrorMessage = false;
-  player: Player = new Player('', '', 0);
+  player: Player = new Player('', '');
 
   playerForm = new FormGroup({
     email: new FormControl<string>('', {
@@ -53,7 +53,7 @@ export class LoginComponent {
     console.log(email)
     //todo: hier muss ein service aufgerufen werden, der den login durchführt
 
-    this.apiPlayerService.getPlayerByCredentials(new Player(email, password, 0)).subscribe((data) => {
+    this.apiPlayerService.getPlayerByCredentials(new Player(email, password)).subscribe((data) => {
 
       if (data === null) {
         this.showErrorMessage = true;
@@ -61,8 +61,9 @@ export class LoginComponent {
         this.player.email = data.email;
         this.player.password = data.password;
         console.log("Email: " + this.player.email + " Password: " + this.player.password);
+        this.dataSharingService.changeActivePlayer(new Player(email, password));
+        sessionStorage.setItem('user', JSON.stringify(new Player(email, password)))
         this.router.navigate(['homepage', 'opengames']);
-        this.dataSharingService.changeActivePlayer(new Player(email, password, 0));
       }
     });
   }
