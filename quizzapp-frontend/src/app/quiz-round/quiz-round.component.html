@@ -7,7 +7,7 @@
 <mat-horizontal-stepper [linear]="true">
 
   <!-- First Question -->
-  <mat-step [completed]="isVisible">
+  <mat-step [completed]="isVisible" [editable]="editable">
     <ng-template matStepLabel>Question Nr.1</ng-template>
     <ng-template matStepContent>
       <div class="grid">
@@ -26,14 +26,14 @@
 
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons">
-        <button mat-button matStepperPrevious>Abort round</button>
+        <button mat-button matStepperPrevious (click)="abortRound()">Abort round</button>
         <button mat-button matStepperNext *ngIf="isVisible" (click)="nextQuestion(0)">Next question</button>
       </div>
     </ng-template>
   </mat-step>
 
   <!-- Second Question -->
-  <mat-step [completed]="isVisible">
+  <mat-step [completed]="isVisible" [editable]="editable">
     <ng-template matStepLabel>Question Nr.2</ng-template>
     <ng-template matStepContent>
       <div class="grid">
@@ -52,14 +52,14 @@
 
       <!--Buttons appearing after questions has been answered -->
       <div class="buttons">
-        <button mat-button matStepperPrevious>Abort round</button>
+        <button mat-button matStepperPrevious (click)="abortRound()">Abort round</button>
         <button mat-button matStepperNext *ngIf="isVisible" (click)="nextQuestion(1)">Next question</button>
       </div>
     </ng-template>
   </mat-step>
 
   <!-- Third Question -->
-  <mat-step [completed]="isVisible">
+  <mat-step [completed]="isVisible" [editable]="editable">
     <ng-template matStepLabel>Question Nr.3</ng-template>
     <ng-template matStepContent>
       <div class="grid">

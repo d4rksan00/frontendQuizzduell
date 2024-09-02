@@ -28,6 +28,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   // "clicked" variables
   answered: boolean = false;
   isVisible: boolean = false;
+  editable: boolean = false;
   points: number = 0;
 
   // constructor
@@ -111,6 +112,11 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   }
 
   abortRound() {
-    this.router.navigate(['homepage', 'quizround']);
+    this.answered = true;
+    this.router.navigate(['homepage', 'overview']);
+  }
+
+  finishRound() {
+    this.points
   }
 }

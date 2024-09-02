@@ -39,7 +39,7 @@ export class GameOverviewComponent implements OnInit {
   }
 
   buildpage() {
-    // this.quiz?.player1Points
+    // this.quiz?.player1.points
   }
 
   getQuizData(): void {
