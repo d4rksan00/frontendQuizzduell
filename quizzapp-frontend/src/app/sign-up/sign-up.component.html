@@ -13,7 +13,7 @@
     </mat-form-field>
 
     <button mat-flat-button color="primary" class="btn-createAcc" (click)="cancelClicked()">Cancel</button>
-    <button mat-flat-button color="primary" class="btn-createAcc" [disabled]="!playerForm.valid">Create Account</button>
+    <button mat-flat-button color="primary" class="btn-createAcc" (click)="createAccClicked()" [disabled]="!playerForm.valid">Create Account</button>
   </form>
 
   <div class="errormessage-container" *ngIf="showErrorMessage">
