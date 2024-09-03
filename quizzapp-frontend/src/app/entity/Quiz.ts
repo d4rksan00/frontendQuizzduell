@@ -3,7 +3,7 @@ import { QuizRound } from './QuizRound';
 
 export class Quiz{
     quizId: number;
-    quizRound : QuizRound[] = [];
+    quizRounds : QuizRound[] = [];
     playerOne: Player;
     playerTwo: Player;
     playerOnePoints: number;
@@ -12,9 +12,9 @@ export class Quiz{
 
     
 
-    constructor(quizId: number, quizRound: QuizRound[], playerOne: Player, playerTwo: Player, playerOnePoints: number, playerTwoPoints: number, isFinished: Boolean){
+    constructor(quizId: number, quizRounds: QuizRound[], playerOne: Player, playerTwo: Player, playerOnePoints: number, playerTwoPoints: number, isFinished: Boolean){
         this.quizId= quizId;
-        this.quizRound = quizRound;
+        this.quizRounds = quizRounds;
         this.playerOne = playerOne;
         this.playerTwo = playerTwo;
         this.playerOnePoints = playerOnePoints;

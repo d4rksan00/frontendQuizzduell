@@ -1,19 +1,19 @@
 <div class="main-container">
     <div class="player-one-container">
-        <button mat-fab extended class="{{getAnswerStatus(0)}}">
+        <button mat-fab extended class="{{getAnswerStatus(0, true)}}">
         </button>
-        <button mat-fab extended class="{{getAnswerStatus(1)}}">
+        <button mat-fab extended class="{{getAnswerStatus(1, true)}}">
         </button>
-        <button mat-fab extended class="{{getAnswerStatus(2)}}">
+        <button mat-fab extended class="{{getAnswerStatus(2, true)}}">
         </button>
     </div>
-    <div class="category-container">Category {{categoryNumber}}</div>
+    <div class="category-container">{{getCategory()}}</div>
     <div class="player-two-container">
-        <button mat-fab extended class="{{getAnswerStatus(3)}}">
+        <button mat-fab extended class="{{getAnswerStatus(0, false)}}">
         </button>
-        <button mat-fab extended class="{{getAnswerStatus(4)}}">
+        <button mat-fab extended class="{{getAnswerStatus(1, false)}}">
         </button>
-        <button mat-fab extended class="{{getAnswerStatus(5)}}">
+        <button mat-fab extended class="{{getAnswerStatus(2, false)}}">
         </button>
     </div>
 </div>
