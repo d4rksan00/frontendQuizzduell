@@ -2,17 +2,15 @@ import { Player } from './Player';
 import { QuizRound } from './QuizRound';
 
 export class Quiz{
-    quizId: number;
+    quizId: number | undefined;
     quizRound : QuizRound[] = [];
     playerOne: Player;
     playerTwo: Player;
     playerOnePoints: number;
     playerTwoPoints: number;
-    isFinished: Boolean;
+    isFinished?: Boolean;
 
-
-
-    constructor(quizId: number, quizRound: QuizRound[], playerOne: Player, playerTwo: Player, playerOnePoints: number, playerTwoPoints: number, isFinished: Boolean){
+    constructor (quizRound: QuizRound[], playerOne: Player, playerTwo: Player, playerOnePoints: number, playerTwoPoints: number, isFinished: Boolean, quizId? : number){
         this.quizId= quizId;
         this.quizRound = quizRound;
         this.playerOne = playerOne;
@@ -21,4 +19,6 @@ export class Quiz{
         this.playerTwoPoints = playerTwoPoints;
         this.isFinished = isFinished;
     }
+
+
 }

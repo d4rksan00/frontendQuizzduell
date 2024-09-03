@@ -20,6 +20,10 @@ export class ApiPlayerService {
     return this.httpClient.post<Player>(`${this.playerUrl}/getByCredentials`, player);
   }
 
+  getPlayerByEmail(player: Player): Observable<Player> {
+    return this.httpClient.post<Player>(`${this.playerUrl}/getByEmail`, player);
+  }
+
   getOpenGames(player:Player): Observable<Player> {
     return this.httpClient.post<Player>(`${this.playerUrl}/getOpenGames`, player);
   }

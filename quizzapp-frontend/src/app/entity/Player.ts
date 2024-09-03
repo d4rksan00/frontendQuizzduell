@@ -6,7 +6,7 @@ export class Player {
         //public id: Number,
         // public name: string,
         public email: string,
-        public password: string,
+        public password?: string,
         // public activePlayer: Boolean,
         // public points: Number,
         // public countWins: Number,

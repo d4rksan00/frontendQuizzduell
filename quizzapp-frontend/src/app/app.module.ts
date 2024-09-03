@@ -31,6 +31,7 @@ import {SingleRoundComponent} from './single-round/single-round.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {HttpClientModule} from '@angular/common/http';
 import { QuestionComponent } from './question/question.component';
+import { NewGameComponent } from './new-game/new-game.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { QuestionComponent } from './question/question.component';
     SignUpComponent,
     SingleRoundComponent,
     QuestionComponent,
+    NewGameComponent,
   ],
   imports: [
     BrowserModule,

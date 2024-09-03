@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Quiz } from '../entity/Quiz';
+import {Player} from "../entity/Player";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class QuizService {
   constructor(private httpClient: HttpClient) { }
 
 
-   createDummyQuiz(quiz: Quiz): Observable<Quiz> {
+   createDummyQuiz(playerOne: Player, playerTwo: Player): Observable<Quiz> {
+    const quiz : Quiz = new Quiz([], playerOne, playerTwo, 0, 0, false, undefined)
     return this.httpClient.post<Quiz>(`${this.quizUrl}/create`, quiz)
    }
 

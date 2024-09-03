@@ -7,6 +7,7 @@ import { PageDoesNotExistComponent } from './page-does-not-exist/page-does-not-e
 import { QuizRoundComponent } from './quiz-round/quiz-round.component';
 import {OpenGamesComponent} from "./open-games/open-games.component";
 import {SignUpComponent} from "./sign-up/sign-up.component";
+import {NewGameComponent} from "./new-game/new-game.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
       {path: 'overview', component: GameOverviewComponent},
       {path: 'quizround', component: QuizRoundComponent},
       {path: 'opengames', component: OpenGamesComponent},
+      {path: 'newgame', component: NewGameComponent},
    ]
   },
   {path: '**', component: PageDoesNotExistComponent}
