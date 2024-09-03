@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Quiz} from '../entity/Quiz';
 import {Category} from "../entity/Category";
 
@@ -41,13 +41,13 @@ export class SingleRoundComponent {
     {id: 21, name: "SPORTS", shownName:"Sports"},
     {id: 28, name: "VEHICLES", shownName:"Vehicles"},
   ];
-  public currentRoundCategory: any = this.quiz?.quizRounds[this.round].category
+  public currentRoundCategory: any = this.quiz?.quizRound[this.round].category
 
   getAnswerStatus(index: number): string {
-    if (typeof this.quiz?.quizRounds[this.round] === 'undefined' || typeof this.quiz?.quizRounds[this.round].question[index] === 'undefined') {
+    if (typeof this.quiz?.quizRound[this.round] === 'undefined' || typeof this.quiz?.quizRound[this.round].question[index] === 'undefined') {
       return '';
     }
-    return this.quiz.quizRounds[this.round].question[index].answerIsRight ? 'correct' : 'incorrect';
+    return this.quiz.quizRound[this.round].question[index].answerIsRight ? 'correct' : 'incorrect';
   }
 
   submitCategory(categoryId: string)  {

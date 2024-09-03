@@ -3,7 +3,6 @@ import {Router} from "@angular/router";
 import {DataSharingService} from "../service/data-sharing.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {firstValueFrom} from "rxjs";
-import {ApiPlayerService} from "../service/api-player.service";
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -24,10 +23,7 @@ export class SignUpComponent {
       validators: [Validators.required]
     })
   });
-  constructor(
-    private router: Router, 
-    private dataSharingService: DataSharingService, 
-    private apiPlayerService: ApiPlayerService) {
+  constructor(private router: Router, private dataSharingService: DataSharingService) {
   }
   async cancelClicked() {
     try {
@@ -44,15 +40,14 @@ export class SignUpComponent {
   async createAccClicked() {
     const email = this.playerForm.controls.email.value;
     const password = this.playerForm.controls.password.value;
-    const player = { email, password };
 
-    const registeredUser = await firstValueFrom(this.apiPlayerService.register(email, password));
-    this.dataSharingService.changeActivePlayer(registeredUser);
+    const registeredUser = await firstValueFrom(this.dataSharingService.register(email, password));
 
     if (registeredUser) {
-      await this.router.navigate(['homepage', 'opengames']);
+      await this.router.navigate(['homepage', 'overview']);
     } else {
       this.showErrorMessage = true;
     }
+
   }
 }

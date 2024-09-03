@@ -29,7 +29,7 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   isAnswered: boolean = false;
   isVisible: boolean = false;
   editable: boolean = false;
-  points: number = 0;
+  // points: number = 0;
 
   // constructor
   constructor(questionService: QuestionService, private dataSharingService: DataSharingService, private router: Router) {
@@ -81,10 +81,10 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
     this.isVisible = true;
 
     if (answer === this.currentQuestion?.correct_answer) {
-      this.points +=1
+      this.currentQuestion.answerIsRight = true;
       alert("Your answer is correct!");
     } else {
-      alert("Unfortunately your answer is false!");
+      alert("Your answer is false!");
     }
   }
 
@@ -112,12 +112,15 @@ export class QuizRoundComponent implements MatProgressBarModule, OnInit {
   }
 
   abortRound() {
-    this.isAnswered = true;
+    for (let i = 0; i < 3; i++) {
+      this.currentQuestion = this.questions[i]
+      this.isAnswered = true;
+    }
+
     this.router.navigate(['homepage', 'overview']);
   }
 
   finishRound() {
-    this.points
     this.router.navigate(['homepage', 'overview']);
   }
 }

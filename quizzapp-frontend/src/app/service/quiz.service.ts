@@ -8,14 +8,16 @@ import { Quiz } from '../entity/Quiz';
 })
 export class QuizService {
 
-  constructor(private http: HttpClient) { }
+  quizUrl: string = "http://localhost:8181/quiz"
 
-  // Dummy-Daten sind überflussig geworden
-   getQuizzes(): Observable<Quiz> {
-     return of();
+  constructor(private httpClient: HttpClient) { }
+
+
+   createDummyQuiz(quiz: Quiz): Observable<Quiz> {
+    return this.httpClient.post<Quiz>(`${this.quizUrl}/create`, quiz)
    }
 
    getDummyQuiz(): Observable<Quiz> {
-    return this.http.get<Quiz>("http://localhost:8181/quiz/1")
+    return this.httpClient.get<Quiz>(`${this.quizUrl}/1`)
    }
 }

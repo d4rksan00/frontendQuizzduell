@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DataSharingService {
 
-  activePlayer = new BehaviorSubject<Player>(new Player('', '',0));
+  activePlayer = new BehaviorSubject<Player>(new Player('', ''));
   currentActivePlayer = this.activePlayer.asObservable();
   categoryId : BehaviorSubject<string> = new BehaviorSubject<string>("");
   currentCategoryId = this.categoryId.asObservable();
@@ -32,7 +32,7 @@ export class DataSharingService {
   }
 
   register(email: string, password: string): Observable<Player> {
-    const player = new Player(email, password, 0);
+    const player = new Player(email, password);
     this.activePlayer.next(player);
     return this.currentActivePlayer;
   }

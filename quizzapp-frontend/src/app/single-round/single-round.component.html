@@ -11,7 +11,7 @@
     <select #categoryId (change)="submitCategory(categoryId.value)">
       <option *ngFor="let category of categories"
               [value]="category.id"
-              [selected]="this.quiz.quizRounds[this.round]?.category === category.shownName">
+              [selected]="currentRoundCategory === category.shownName">
         {{category.shownName}}
       </option>
     </select>
